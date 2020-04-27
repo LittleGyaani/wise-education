@@ -1,0 +1,188 @@
+
+---Downloaded files---
+The import files for: Demo Import were successfully downloaded!
+Initial max execution time = 120
+Files info:
+Site URL = https://localhost/wise-education
+Data file = /Applications/XAMPP/xamppfiles/htdocs/wise-education/wp-content/uploads/2020/04/demo-content-import-file_2020-04-26__16-47-20.xml
+Widget file = /Applications/XAMPP/xamppfiles/htdocs/wise-education/wp-content/uploads/2020/04/demo-widgets-import-file_2020-04-26__16-47-20.json
+Customizer file = /Applications/XAMPP/xamppfiles/htdocs/wise-education/wp-content/uploads/2020/04/demo-customizer-import-file_2020-04-26__16-47-20.dat
+Redux files:
+not defined!
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Sidebar Blog : 
+
+Search - Search - Imported
+Categories - No Title - Imported
+Recent Posts Advanced - Recent Posts - Imported
+Tag Cloud - No Title - Imported
+Text - No Title - Imported
+Instagram Photos - Instagram Photos - Imported
+Mailchimp Sign-Up Form - Newsletter - Imported
+Lastest Tweets - Latest Tweets - Imported
+
+Sidebar Footer 1 : 
+
+Text - No Title - Imported
+Socials - No Title - Imported
+
+Sidebar Footer 2 : 
+
+Links - Useful Links - Imported
+
+Sidebar Footer 3 : 
+
+Information - Contact - Imported
+
+Sidebar Footer 4 : 
+
+Mailchimp Sign-Up Form - Newsletter - Imported
+
+
+
+---Importing customizer settings---
+Customizer settings import finished!
+
+---pt-ocdi/after_import---
+
