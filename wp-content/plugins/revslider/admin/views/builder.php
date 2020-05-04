@@ -39,7 +39,7 @@ require_once(RS_PLUGIN_PATH . 'admin/views/modals-copyright.php');
 
 <div id="wp_overlay"></div>
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
-<div id="builderView" class="_TPRB_">
+<div id="builderView">
 
 	<!-- REVOLUTION BUILDER TOP LEVEL WRAPPER -->
 	<div id="rb_tlw">

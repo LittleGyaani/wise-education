@@ -1,0 +1,76 @@
+.ova_time_countdown {
+	padding: 20px 0px 20px 0px;
+	border-radius: 5px 5px 5px 5px;
+	.due_date {
+		.countdown-section {
+			display: inline-block;
+			position: relative;
+			margin-bottom: 0px;
+			line-height: 1.2em;
+			&:not(:last-child) {
+				padding-right: 44px;
+			}
+			&:nth-child(1) { 
+				display: none;
+			}
+			&:nth-child(2) { 
+				display: none;
+			}
+			&:nth-child(3) { 
+				display: none;
+			}
+			&:nth-child(4) { 
+				display: none;
+				margin-right: 0;
+			}
+			.countdown-amount {
+				color: #43464b;
+				font-weight: 500;
+				font-size: 60px;
+				position: relative;
+			}
+			.countdown-period {
+				color: #43464b;
+				font-weight:500;
+				font-size: 24px;
+				padding-top: 13px;
+				width: 100%;
+				display: inline-block;
+				padding-right: 8px;
+				line-height: 1.2;
+				text-transform: uppercase;
+			}
+			&:not(:last-child) {
+				&:before {
+					width: 50px;
+					height: 10px;
+					background-color: #43464b;
+					position: absolute;
+					right: -5px;
+					top: 30%;
+					content: '';
+				    transform: translate(0,-50%);
+				    border-radius: 5px;
+				}
+			}
+			
+		}
+	}
+}
+@media (max-width: 767px) {
+	.ova_time_countdown {
+		.due_date {
+			.countdown-section {
+				&:not(:last-child) {
+					margin-bottom: 10px;
+				}
+				.countdown-amount {
+					font-size: 40px;
+				}
+				.countdown-period {
+					font-size: 18px;
+				}
+			}
+		}
+	}
+}

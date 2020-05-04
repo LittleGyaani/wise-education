@@ -1,0 +1,158 @@
+/********** Fix Group **********/
+.header_group {
+	.elementor-widget-wrap {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		.elementor-element {
+			margin: 0px;
+		}
+	}
+	&.dir_left .elementor-widget-wrap {
+		justify-content: flex-start;
+	}
+	&.dir_center .elementor-widget-wrap {
+		justify-content: center;
+	}
+}
+
+/*** Foter ***/
+
+.widget-inside{
+	p{
+ 	 	font-weight: 400;
+ 	 	margin-bottom: 0;
+ 	 	font-size: 14px;
+ 	 	line-height: 28px;
+ 	 	padding-top: 0;
+	}
+	&.last{
+		padding-top: 20px;
+	}
+	a{
+		color: #fff;
+	}
+	&.style2{
+		a{
+			color: #221a1a;
+		}		
+	}
+}
+
+.footer-link{
+	h3{
+	    padding-bottom: 24px;
+	    font-weight: 500;
+	    font-size: 18px;
+	    text-transform: uppercase;
+	}
+	ul{
+		padding: 0;
+		list-style: none;
+		li{
+			padding-top: 0;
+			line-height: 29px;
+			a{
+			    font-weight: 400;
+			    font-size: 14px;
+			    letter-spacing: 0.3px;
+			}
+		}
+	}
+	address{
+		font-style: inherit;
+	}
+	address p {
+	    font-weight: 400;
+	    margin-bottom: 0;
+	    font-size: 14px;
+	    padding-top: 0;
+	    line-height: 30px;
+	    letter-spacing: 0.3px;
+	}
+
+}
+.footer-input{
+	h3{
+	    padding-bottom: 24px;
+	    font-weight: 500;
+	    font-size: 18px;
+	    text-transform: uppercase;	
+	}
+	p{
+		margin-bottom: 0;
+		line-height: 30px;
+		padding-bottom: 28px;
+	}
+	.blog-newsletter{
+		padding: 0;
+		background: transparent;
+		h3{
+			display: none;
+		}
+		.form-mail{
+			display: flex;
+			margin-bottom: 0;
+			padding-bottom: 0;
+			flex-wrap: inherit;
+			input[type="text"]{
+				display: none;
+			}
+			input[type="email"]{
+			    width: 100%;
+			    outline: 0;
+			    border: 0;
+			    background-color: #ffffff;
+			    padding: 8px 14px;
+			    font-weight: 400;
+			    color: #302f3b;
+			    font-size: 12px;
+			    margin: 0;
+			    border-radius: 5px;
+			    height: 40px;
+			    min-width: auto;
+			    width: 98%;
+			}
+			button[type="submit"]{
+			    background-color: #f16334;
+			    color: #ffffff;
+			    outline: 0;
+			    border: 0;
+			    padding: 8px 35.5px;
+			    cursor: pointer;
+			    height: 40px;
+			    border-radius: 5px;
+			    min-width: auto;
+			    width: auto;
+			    margin: 0;
+			    span{
+			    	display: none;
+			    }
+			    i{
+			    	&:before{
+			    		font-family: "Font Awesome 5 Free";
+			    		content: "\f1d8";
+					    font-size: 14px;
+					    margin: 0;
+					    font-weight: 900;
+			    	}
+			    }
+			}
+		}
+		
+	}
+}
+
+.footer-bottom{
+	p{
+		margin-bottom: 0;
+	}
+}
+
+.ct_form_home2{
+	.form_home_1{
+		@media(max-width: 1024px){
+			padding: 31px 35px 9px 35px;
+		}
+	}
+}

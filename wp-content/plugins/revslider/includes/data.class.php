@@ -263,8 +263,6 @@ class RevSliderData {
 					'standard_resolution' => __('Standard Resolution', 'revslider'),
 					'thumbnail' => __('Thumbnail', 'revslider'),
 					'low_resolution' => __('Low Resolution', 'revslider'),
-					'original_size' => __('Original Size', 'revslider'),
-					'large' => __('Large Size', 'revslider'),
 				);
 			break;
 			case 'twitter':

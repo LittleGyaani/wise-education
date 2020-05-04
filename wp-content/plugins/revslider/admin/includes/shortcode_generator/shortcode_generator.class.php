@@ -28,7 +28,7 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 		wp_enqueue_style('revslider-material-icons', RS_PLUGIN_URL . 'admin/assets/icons/material-icons.css', array(), RS_REVISION);
 		wp_enqueue_style('revslider-basics-css', RS_PLUGIN_URL . 'admin/assets/css/basics.css', array(), RS_REVISION);
 		wp_enqueue_style('rs-color-picker-css', RS_PLUGIN_URL . 'admin/assets/css/tp-color-picker.css', array(), RS_REVISION);
-		wp_enqueue_style('revbuilder-select2RS', RS_PLUGIN_URL . 'admin/assets/css/select2RS.css', array(), RS_REVISION);			
+		wp_enqueue_style('revbuilder-select2RS', RS_PLUGIN_URL . 'admin/assets/css/select2RS.css', array(), RS_REVISION);
 	}
 
 	public static function add_scripts($elementor = false){
@@ -68,6 +68,9 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 
 			// enqueue styles
 			self::add_styles();
+		}else{
+			// elementor
+			wp_enqueue_script('revslider-elementor', RS_PLUGIN_URL . 'admin/assets/js/shortcode_generator/elementor.js', array('jquery'), RS_REVISION, true);
 		}
 
 		$output_class = new RevSliderOutput();
@@ -82,7 +85,7 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 			wp_enqueue_script('revbuilder-color-picker-js', RS_PLUGIN_URL . 'admin/assets/js/plugins/tp-color-picker.min.js', array('jquery', 'revbuilder-select2RS', 'wp-color-picker'), RS_REVISION);
 			wp_enqueue_script('revbuilder-clipboard', RS_PLUGIN_URL . 'admin/assets/js/plugins/clipboard.min.js', array('jquery'), RS_REVISION, false);
 			wp_enqueue_script('revbuilder-utils', RS_PLUGIN_URL . 'admin/assets/js/modules/objectlibrary.js', array('jquery'), RS_REVISION, false);
-			wp_enqueue_script('revbuilder-optimizer', RS_PLUGIN_URL . 'admin/assets/js/modules/optimizer.js', array('jquery'), RS_REVISION, false);					
+			wp_enqueue_script('revbuilder-optimizer', RS_PLUGIN_URL . 'admin/assets/js/modules/optimizer.js', array('jquery'), RS_REVISION, false);
 		}else{
 			wp_enqueue_script('revbuilder-utils', RS_PLUGIN_URL . 'admin/assets/js/plugins/utils.min.js', array('jquery','wp-color-picker'), RS_REVISION, false);
 		}
@@ -90,9 +93,7 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 		wp_enqueue_script('tp-tools', RS_PLUGIN_URL . 'public/assets/js/revolution.tools.min.js', array('jquery'), RS_REVISION, true);
 
 		// object library translations
-		wp_localize_script('revbuilder-utils', 'RVS_LANG', array(			
-			'sliderasmodal' => __('Use as Modal', 'revslider'),
-			'noadminthumbs' => __('No Admin Thumb set', 'revslider'),
+		wp_localize_script('revbuilder-utils', 'RVS_LANG', array(
 			'corejs' => __('Core JavaScript', 'revslider'),
 			'corecss' => __('Core CSS', 'revslider'),
 			'coretools' => __('Core Tools (GreenSock & Co)', 'revslider'),
@@ -179,22 +180,10 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 			'creationascending' => __('Creation Ascending', 'revslider'),
 			'sortbytitle' => __('Sort by Title', 'revslider'),
 			'titledescending' => __('Title Descending', 'revslider'),
-			'active_sr_to_access' => __('Register Slider Revolution<br>to Unlock Premium Features', 'revslider'),
-			'active_sr_plg_activ' => __('Register Purchase Code', 'revslider'),
-			'onepurchasekey' => __('1 Purchase Code per Website!', 'revslider'),
-			'onepurchasekey_info' => __('If you want to use your purchase code on<br>another domain, please deregister it first or', 'revslider'),
-			'addons' => __('Add-Ons', 'revslider'),
-			'active_sr_tmp_obl' => __('Template & Object Library', 'revslider'),
-			'active_sr_inst_upd' => __('Instant Updates', 'revslider'),
-			'active_sr_one_on_one' => __('1on1 Support', 'revslider'),
-			'getlicensekey' => __('Get a Purchase Code', 'revslider'),
-			'ihavelicensekey' => __('I have a Purchase Code', 'revslider'),
-			'registerCode' => __('Register this Code', 'revslider'),
-			'deregisterCode' => __('Deregister this Code', 'revslider')
-
+			'sliderasmodal' => __('Add Slider as Modal', 'revslider')
 		));
 
-		wp_enqueue_script('revbuildet-shortcode-generator-js', RS_PLUGIN_URL . 'admin/assets/js/shortcode_generator/shortcode_generator.js', array('jquery'), RS_REVISION, true);		
+		wp_enqueue_script('revslider-shortcode-generator-js', RS_PLUGIN_URL . 'admin/assets/js/shortcode_generator/shortcode_generator.js', array('jquery'), RS_REVISION, true);
 
 		$rsaf = new RevSliderFunctionsAdmin();
 		$rsa = $rsaf->get_short_library();
@@ -216,8 +205,6 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 			RVS.ENV.plugin_dir = 'revslider';
 			RVS.ENV.admin_url = '<?php echo admin_url('admin.php?page=revslider'); ?>';
 			RVS.ENV.nonce = '<?php echo wp_create_nonce('revslider_actions'); ?>';
-			RVS.ENV.activated		= '<?php echo (get_option('revslider-valid', 'false')) == 'true' ? 'true' : 'false'; ?>';
-			RVS.ENV.activated		= RVS.ENV.activated == 'true' || RVS.ENV.activated == true ? true : false;
 
 			window.addEventListener('load', function(){
 				RVS.ENV.output_compress	= <?php echo (!empty($rs_compression)) ? 'jQuery.parseJSON('. $rsaf->json_encode_client_side($rs_compression) .')' : '[]'; ?>;
@@ -242,6 +229,38 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
 		require_once(RS_PLUGIN_PATH . 'admin/views/modals-copyright.php');
 	}
 
+
+	/**
+	 * called from revslider.php
+	  * @since: 6.0
+	 */
+	public static function visual_composer_include(){
+
+		// VC is enabled
+        if(defined('WPB_VC_VERSION') && function_exists('vc_map')){
+			vc_map(
+				array(
+					'name' => __('Revolution Slider 6', 'revslider'),
+					'base' => 'rev_slider',
+					'icon' => 'icon-wpb-revslider',
+					'category' => __('Content', 'revslider'),
+					'show_settings_on_create' => false,
+					'js_view' => 'VcSliderRevolution',
+					'admin_enqueue_js' => RS_PLUGIN_URL.'admin/assets/js/shortcode_generator/vc.js',
+					'front_enqueue_js' => RS_PLUGIN_URL.'admin/assets/js/shortcode_generator/vc.js',
+					'params' => array(
+						array(
+							'type' => 'rev_slider_shortcode',
+							'heading' => __('Alias', 'revslider'),
+							'param_name' => 'alias',
+							'admin_label' => true,
+							'value' => ''
+						)
+					)
+				)
+			);
+		}
+	}
 
 	/**
 	 * add script tinymce shortcode script
@@ -271,4 +290,5 @@ class RevSliderShortcodeWizard extends RevSliderFunctions {
  **/
 class RevSlider_TinyBox extends RevSliderShortcodeWizard {}
 class RevSliderTinyBox extends RevSlider_TinyBox {}
+
 ?>

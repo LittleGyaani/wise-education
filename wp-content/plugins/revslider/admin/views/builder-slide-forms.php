@@ -336,7 +336,7 @@ if ($wpml->wpml_exists()) {
 				<div class="form_inner_header"><i class="material-icons">blur_on</i><?php _e('Filters', 'revslider');?></div>
 				<!--<div class="form_intoaccordion" data-trigger="#sl_fbg_l1_3"><i class="material-icons">arrow_drop_down</i></div>-->
 				<div class="collapsable">
-					<label_a><?php _e('BG Filter', 'revslider');?></label_a><select data-theme="dark" id="slide_bg_filter" class="slideinput tos2 nosearchbox easyinit" data-evtparam="double" data-show=".*val*_warning" data-hide=".filter_warning" data-evt="updateslidebasic" data-unselect=".filter_selector" data-select="#filter_*val*"  data-r="bg.mediaFilter">
+					<label_a><?php _e('BG Filter', 'revslider');?></label_a><select data-theme="dark" id="slide_bg_filter" class="slideinput tos2 nosearchbox easyinit" data-evtparam="double" data-evt="updateslidebasic" data-unselect=".filter_selector" data-select="#filter_*val*"  data-r="bg.mediaFilter">
 								<option value="none">No Filter</option>
 									<option value="_1977">1977</option>
 									<option value="aden">Aden</option>
@@ -384,12 +384,6 @@ if ($wpml->wpml_exists()) {
 						--><div id="filter_willow" data-val="willow" data-hoverevtparam="willow" data-leaveevtparam="double" data-leaveevt="updateslidebasic" data-select="#slide_bg_filter" data-hoverevt="showSlideFilter" class="filter_selector callhoverevt triggerselect filter_willow inst-filter-griditem " data-name="Willow"><div class="inst-filter-griditem-img willow"></div></div><!--
 						--><div id="filter_xpro2" data-val="xpro2" data-hoverevtparam="xpro2" data-leaveevtparam="double" data-leaveevt="updateslidebasic" data-select="#slide_bg_filter" data-hoverevt="showSlideFilter" class="filter_selector callhoverevt triggerselect filter_xpro2 inst-filter-griditem " data-name="X-pro"><div class="inst-filter-griditem-img xpro2"></div></div>
 					</div>
-					<div class="div25"></div>					
-					<row class="direktrow filter_warning earlybird_warning, lark_warning moon_warning toaster_warning willow_warning xpro2_warning">
-						<labelhalf><i class="material-icons vmi">sms_failed</i></labelhalf>
-						<contenthalf><div class="function_info"><?php _e('The Filter may not work with HTML5 Videos in Internet Explorer and Edge Browsers', 'revslider');?></div></contenthalf>
-					</row>
-					
 				</div><!-- END OF COLLAPSABLE -->
 			</div><!-- END OF FILTER SETTINGS -->
 		</div>
@@ -558,7 +552,7 @@ if ($wpml->wpml_exists()) {
 								<option value="_blank"><?php _e('_blank', 'revslider');?></option>
 								<option value="_top"><?php _e('_top', 'revslider');?></option>
 								<option value="_parent"><?php _e('_parent', 'revslider');?></option>														
-							</select>							
+						<	/select>							
 						</div>
 						<div class="slidelink_seo_subs" id="slidelink_slide_seo">
 							<label_a><?php _e('Link to Slide', 'revslider');?></label_a><select data-theme="dark" id="slide_seo_linktoslide" class="slideinput tos2 nosearchbox easyinit"  data-r="seo.slideLink"></select><span class="linebreak"></span>

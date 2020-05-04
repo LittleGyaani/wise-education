@@ -392,8 +392,8 @@ class RevSliderObjectLibrary extends RevSliderFunctions {
 		
 		if($error !== '') return array('error' => $error);
 		
-		$data = json_decode($layers_data, true);
-		$data = (empty($data)) ? json_decode(stripslashes($layers_data), true) : $data;
+		$data = json_decode($layers_data);
+		$data = (empty($data)) ? json_decode(stripslashes($layers_data)) : $data;
 		
 		if(!empty($data)){
 			foreach($data as $k => $v){

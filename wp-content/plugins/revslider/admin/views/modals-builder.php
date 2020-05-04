@@ -11,30 +11,9 @@
 if(!defined('ABSPATH')) exit();
 ?>
 
-<!--QUICK GUIDE MODAL-->
-<div class="_TPRB_ rb-modal-wrapper" data-modal="rbm_colorskins">
-	<div class="rb-modal-inner">
-		<div class="rb-modal-content">
-			<div id="rbm_colorskins" class="rb_modal form_inner">
-				<div class="rbm_header"><i class="rbm_symbol material-icons">format_paint</i><span class="rbm_title"><?php _e('Color Skins', 'revslider');?></span><i class="rbm_close material-icons">close</i></div>	
-				<div class="rbm_content">
-					<div class="modal_fields_title" style="width:170px;margin-right:10px;"><?php _e('SKIN TITLE', 'revslider');?></div><div class="modal_fields_title"><?php _e('SKIN COLOR', 'revslider');?></div>
-					<div id="module_color_skins"></div>
-					<div class="div20"></div>
-					<div id="add_skin_color" class="basic_action_button layerinput autosize rightbutton"><i class="material-icons">color_lens</i><?php _e('Add Skin', 'revslider');?></div><div class="tp-clearfix"></div>
-					<div class="div40"></div>
-					<div class="global_sas_wrap">
-						<label_a style="max-width:none; width:auto;"><?php _e('Show this Modal on Editor launch', 'revslider');?></label_a><input type="checkbox" id="sr_show_glob_skins" class="sliderinput easyinit" data-r="skins.colorsAtStart" checked="checked">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
 
 <!--QUICK GUIDE MODAL-->
-<div class="_TPRB_ rb-modal-wrapper" data-modal="rbm_quickguide">
+<div class="rb-modal-wrapper" data-modal="rbm_quickguide">
 	<div class="rb-modal-inner">
 		<div class="rb-modal-content">
 			<div id="rbm_quickguide" class="rb_modal form_inner">
@@ -215,7 +194,7 @@ if(!defined('ABSPATH')) exit();
 
 
 <!--LAYER IMPORT/EXPORT MODAL-->
-<div class="_TPRB_ rb-modal-wrapper" data-modal="rbm_layerimport">
+<div class="rb-modal-wrapper" data-modal="rbm_layerimport">
 	<div class="rb-modal-inner">
 		<div class="rb-modal-content">
 			<div id="rbm_layerimport" class="rb_modal form_inner">
@@ -236,7 +215,7 @@ if(!defined('ABSPATH')) exit();
 
 
 <!-- NAVIGATION EDITOR -->
-<div class="_TPRB_ rb-modal-wrapper" data-modal="rbm_navigation_editor">
+<div class="rb-modal-wrapper" data-modal="rbm_navigation_editor">
 	<div class="rb-modal-inner">
 		<div class="rb-modal-content">
 			<div id="rbm_navigation_editor" class="rb_modal form_inner">
@@ -386,7 +365,7 @@ if(!defined('ABSPATH')) exit();
 
 
 <!-- SLIDER API MODAL -->
-<div class="_TPRB_ rb-modal-wrapper" data-modal="rbm_slider_api" data-centerineditor="true">
+<div class="rb-modal-wrapper" data-modal="rbm_slider_api" data-centerineditor="true">
 	<div class="rb-modal-inner">
 		<div class="rb-modal-content">
 			<div id="rbm_slider_api" class="rb_modal form_inner">
@@ -534,7 +513,7 @@ if(!defined('ABSPATH')) exit();
 </div>
 
 <!--LAYER META MODAL-->
-<div class="_TPRB_ rb-modal-wrapper" data-modal="rbm_layer_metas">
+<div class="rb-modal-wrapper" data-modal="rbm_layer_metas">
 	<div class="rb-modal-inner">
 		<div class="rb-modal-content">
 			<div id="rbm_layer_metas" class="rb_modal form_inner">
@@ -717,7 +696,7 @@ if(!defined('ABSPATH')) exit();
 </div>
 
 <!--LAYER ACTION MODAL-->
-<div class="_TPRB_ rb-modal-wrapper" data-modal="rbm_layer_action">
+<div class="rb-modal-wrapper" data-modal="rbm_layer_action">
 	<div class="rb-modal-inner">
 		<div class="rb-modal-content">
 			<div id="rbm_layer_action" class="rb_modal form_inner">

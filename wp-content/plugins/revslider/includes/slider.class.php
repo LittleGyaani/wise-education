@@ -12,8 +12,8 @@ class RevSliderSlider extends RevSliderFunctions {
 	public $id;
 	public $title;
 	public $alias;
-	public $settings = array();
-	public $params = array();
+	public $settings;
+	public $params;
 	public $slides;
 	public $type;
 	public $inited = false;
@@ -1042,7 +1042,7 @@ class RevSliderSlider extends RevSliderFunctions {
 		
 		if(!empty($slides)){
 			foreach($slides as $slide){
-				$c_slide	= new RevSliderSlide();
+				$c_slide	= new RevSliderSlide();	
 				$c_slide->init_by_data($slide);
 				$layers		= $c_slide->get_layers();
 				$did_change	= false;
@@ -1092,9 +1092,6 @@ class RevSliderSlider extends RevSliderFunctions {
 				$c_slider->update_params(array('codes' => array('javascript' => $cus_js, 'css' => $c_slider->get_param(array('codes', 'css'), ''))));
 			}
 		}
-		
-		$upd = new RevSliderPluginUpdate();
-		$upd->upgrade_slider_to_latest($c_slider);
 		
 		return $slider_last_id;
 	}
@@ -2064,6 +2061,7 @@ class RevSliderSlider extends RevSliderFunctions {
 				$posts		 = ($this->get_param(array('source', 'instagram', 'type'), 'user') != 'hash') ? $instagram->get_public_photos($this->get_param(array('source', 'instagram', 'userId')), $this->get_param(array('source', 'instagram', 'count'), '33')) : $instagram->get_tag_photos($this->get_param(array('source', 'instagram', 'hashTag')), $this->get_param(array('source', 'instagram', 'count'), '33'));
 				$max_posts	 = $this->get_param(array('source', 'instagram', 'count'), '33');
 				$additions['instagram_user'] = $this->get_param(array('source', 'instagram', 'userId'));
+				
 				$max_allowed = 33;
 			break;
 			case 'flickr':
@@ -2146,7 +2144,6 @@ class RevSliderSlider extends RevSliderFunctions {
 		$i = 0;
 		$tk = 0;
 		
-		
 		foreach($posts as $data){
 			if(empty($data)) continue; //ignore empty entries, like from instagram
 			
@@ -2156,14 +2153,13 @@ class RevSliderSlider extends RevSliderFunctions {
 			$tk++;
 			$tk = ($tk == count($templates)) ? 0 : $tk;
 			$_slides[$i] = new RevSliderSlide();
-
 			$_slides[$i]->init_by_stream_data($data, $slide_template, $this->id, $sourcetype, $additions);
 			
 			$i++;
 		}
 		
 		$this->slides = $_slides;
-
+		
 		return $this->slides;
 	}
 	

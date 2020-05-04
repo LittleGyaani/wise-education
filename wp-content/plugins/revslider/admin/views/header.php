@@ -129,9 +129,9 @@ do_action('revslider_header_content', $rsaf);
 
 
 <!-- WAIT A MINUTE OVERLAY CONTAINER -->
-<div id="waitaminute" class="_TPRB_">
+<div id="waitaminute">
 	<div class="waitaminute-message"><i class="eg-icon-emo-coffee"></i><br><?php _e('Please Wait...', 'revslider'); ?></div>
 </div>
 
 <!-- TOP RIGHT CORNER INFORMATION CONTAINER -->
-<div id="rb_maininfo_wrap" class="_TPRB_"></div>
+<div id="rb_maininfo_wrap"></div>

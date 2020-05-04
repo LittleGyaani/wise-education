@@ -643,6 +643,7 @@ class RevSliderFunctions extends RevSliderData {
 			}
 		}
 		
+		
 		return $image;
 	}
 	
@@ -756,8 +757,8 @@ class RevSliderFunctions extends RevSliderData {
 					$rs_meta_create[$attach_id] = $save_dir;
 					update_option('rs_image_meta_todo', $rs_meta_create);
 				}
-				if($attach_data = @wp_generate_attachment_metadata($attach_id, $save_dir)){
-					@wp_update_attachment_metadata($attach_id, $attach_data);
+				if($attach_data = wp_generate_attachment_metadata($attach_id, $save_dir)){
+					wp_update_attachment_metadata($attach_id, $attach_data);
 				}
 			}else{
 				$attach_id = $atc_id;
@@ -765,7 +766,6 @@ class RevSliderFunctions extends RevSliderData {
 			
 			if($_s_dir !== false){
 				$s_dir = (!is_multisite()) ? 'uploads/'.$_s_dir : $_s_dir;
-				$s_dir = str_replace('//', '/', $s_dir);
 			}else{
 				$art_dir = (!is_multisite()) ? 'uploads/'.$art_dir : $art_dir;
 				$s_dir = str_replace('//', '/', $art_dir.$folder_name.$filename);
@@ -783,14 +783,11 @@ class RevSliderFunctions extends RevSliderData {
 	 * @since: 6.0
 	 **/
 	public static function temporary_remove_sizes($sizes, $meta = false){
-		if(!empty($sizes)){
-			foreach($sizes as $size => $values){
-				if($size == 'thumbnail'){
-					return array($size => $values);
-				}
+		foreach($sizes as $size => $values){
+			if($size == 'thumbnail'){
+				return array($size => $values);
 			}
 		}
-		
 		return $sizes;
 	}
 	
@@ -945,19 +942,7 @@ class RevSliderFunctions extends RevSliderData {
 					$font_name = preg_replace('/[^-a-z0-9 ]+/i', '', $key);
 					$font_name = strtolower(str_replace(' ', '-', esc_attr($font_name)));
 					
-					$f_raw		= explode(':', $font);
-					$weights	= (!empty($f_raw) && is_array($f_raw) && isset($f_raw[1])) ? explode('%2C', $f_raw[1]) : array('400');
-					$f_family	= str_replace('+', ' ', $f_raw[0]);
-					
-					$f_download = false;
-					foreach($weights as $weight){
-						if(!is_file($base_dir.'/revslider/gfonts/'. $font_name . '/' . $font_name . '-' . $weight . '.woff2') || filemtime($base_dir.'/revslider/gfonts/'. $font_name . '/' . $font_name . '-' . $weight . '.woff2') < $rs_google_ts){
-							$f_download = true;
-							break;
-						}
-					}
-					
-					if($f_download){
+					if(!is_file($base_dir.'/revslider/gfonts/'. $font_name . '/' . $font_name . '.woff2') || filemtime($base_dir.'/revslider/gfonts/'. $font_name . '/' . $font_name . '.woff2') < $rs_google_ts){
 						if(!is_dir($base_dir.'/revslider/gfonts/')){
 							mkdir($base_dir.'/revslider/gfonts/');
 						}
@@ -967,47 +952,41 @@ class RevSliderFunctions extends RevSliderData {
 						}
 						
 						$regex_url	= "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
-						$regex_fw	= "/(?<=font-weight:)(.*)(?=;)/";
-						$regex_fs	= "/(?<=font-style:)(.*)(?=;)/";
 						$url		= 'https://fonts.googleapis.com/css?family='.$font;
-						
 						$content	= wp_remote_get($url);
 						$body		= $this->get_val($content, 'body', '');
-						$body		= explode('}', $body);
-						if(!empty($body)){
-							foreach($body as $b){
-								if(preg_match($regex_url, $b, $found_fonts)){
-									$found_font = rtrim($found_fonts[0], ')');
-									$found_fw = (preg_match($regex_fw, $b, $found_fw)) ? trim($found_fw[0]) : '400';
-									$found_fs = (preg_match($regex_fs, $b, $found_fs)) ? trim($found_fs[0]) : 'normal';
-									
-									$f_c = wp_remote_get($found_font);
-									$f_c_body = $this->get_val($f_c, 'body', '');
-									
-									$found_fs = ($found_fs !== 'normal') ? $found_fs : '';
-									$found_fw = ($found_fw === '400' && $found_fs !== '') ? '' : $found_fw;
-									
-									$file = $base_dir.'/revslider/gfonts/'. $font_name . '/' . $font_name . '-' . $found_fw . $found_fs . '.woff2';
-									
-									@mkdir(dirname($file));
-									@file_put_contents($file, $f_c_body);
-								}
+						
+						if(preg_match_all($regex_url, $body, $found_fonts)){
+							foreach($found_fonts as $found_font){
+								$found_font = $found_font[0];
+								$found_font = rtrim($found_font, ')');
+								
+								$f_c = wp_remote_get($found_font);
+								
+								$f_c_body = $this->get_val($f_c, 'body', '');
+								
+								$file = $base_dir.'/revslider/gfonts/'. $font_name . '/' . $font_name . '.woff2';
+								@mkdir(dirname($file));
+								@file_put_contents($file, $f_c_body);
+								
+								break;
 							}
 						}
 					}
 					
+					$f_raw		= explode(':', $font);
+					$weights	= (!empty($f_raw) && is_array($f_raw) && isset($f_raw[1])) ? explode(',', $f_raw[1]) : array('400');
+					$f_family	= str_replace('+', ' ', $f_raw[0]);
+					
 					if(!empty($weights) && is_array($weights)){
 						$ret .= '<style type="text/css">';
 						foreach($weights as $weight){
-							$style	 = (strpos($weight, 'italic') !== false) ? 'italic' : 'normal';
-							$_weight = str_replace('italic', '', $weight);
-							$_weight = (empty(trim($_weight))) ? '400' : $_weight;
-							$ret	.=
+							$ret .=
 "@font-face {
   font-family: '".$f_family."';
-  font-style: ".$style.";
-  font-weight: ".$_weight.";
-  src: local('".$f_family."'), local('".$f_family."'), url(".$base_url.'/revslider/gfonts/'. $font_name . '/' . $font_name . '-' . $weight . '.woff2'.") format('woff2');
+  font-style: normal;
+  font-weight: ".$weight.";
+  src: local('".$f_family."'), local('".$f_family."'), url(".$base_url.'/revslider/gfonts/'. $font_name . '/' . $font_name . '.woff2'.") format('woff2');
 }";
 						}
 						$ret .= '</style>';
@@ -1046,7 +1025,6 @@ class RevSliderFunctions extends RevSliderData {
 		if(!empty($date)){
 			$date = ($with_time) ? date_i18n(get_option('date_format').' '.get_option('time_format'), strtotime($date)) : date_i18n(get_option('date_format'), strtotime($date));
 		}
-		
 		return $date;
 	}
 	
@@ -1155,14 +1133,18 @@ class RevSliderFunctions extends RevSliderData {
 				}
 				
 				if(!empty($default)){
+
+					//KRIKI CHANGE
 					foreach($default as $key => $value){
 						if((is_string($html_array) && $html_array == "".$value) || (!(is_string($html_array)) && $html_array == $value)){
 							$html_array = '';	
 							break;
 						}
 					}
+					/* ALTE ZEUG if(in_array($html_array, $default)){
+						$html_array = '';
+					}*/
 				}
-				
 				return $html_array;
 			break;
 			case 'array':
@@ -1283,18 +1265,6 @@ class RevSliderFunctions extends RevSliderData {
 		return $results;
 	}*/
 
-	/**
-	 * set the memory limit to at least 256MB if possible
-	 * @since: 6.1.6
-	 **/
-	public static function set_memory_limit(){
-		$cml = wp_convert_hr_to_bytes(ini_get('memory_limit'));
-		if($cml < 268435456){
-			$wp_ml = wp_convert_hr_to_bytes(WP_MAX_MEMORY_LIMIT);
-			$wp_ml = ($wp_ml < 268435456) ? 268435456 : $wp_ml;
-			if($cml < $wp_ml) @ini_set('memory_limit', WP_MAX_MEMORY_LIMIT);
-		}
-	}
 }
 
 //class RevSliderFunctions extends rs_functions {}

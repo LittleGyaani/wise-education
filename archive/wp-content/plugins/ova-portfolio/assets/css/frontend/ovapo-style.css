@@ -1,0 +1,142 @@
+.single-portfolio .our-support-tw {
+  padding-top: 0; }
+
+/** CAtegories Portfolio **/
+.post-type-archive .portfolio-page-sr3, .tax-portfolio_category .portfolio-page-sr3 {
+  padding-bottom: 56px; }
+  .post-type-archive .portfolio-page-sr3 .portfolio_content, .tax-portfolio_category .portfolio-page-sr3 .portfolio_content {
+    margin-bottom: 64px; }
+    .post-type-archive .portfolio-page-sr3 .portfolio_content .portfolio-info-in, .tax-portfolio_category .portfolio-page-sr3 .portfolio_content .portfolio-info-in {
+      padding-left: 30px; }
+      @media (max-width: 768px) {
+        .post-type-archive .portfolio-page-sr3 .portfolio_content .portfolio-info-in, .tax-portfolio_category .portfolio-page-sr3 .portfolio_content .portfolio-info-in {
+          padding-left: 0; } }
+      @media (max-width: 767px) {
+        .post-type-archive .portfolio-page-sr3 .portfolio_content .portfolio-info-in, .tax-portfolio_category .portfolio-page-sr3 .portfolio_content .portfolio-info-in {
+          padding-top: 29px; } }
+      .post-type-archive .portfolio-page-sr3 .portfolio_content .portfolio-info-in h3, .tax-portfolio_category .portfolio-page-sr3 .portfolio_content .portfolio-info-in h3 {
+        font-weight: 500;
+        color: #43464b;
+        font-size: 24px;
+        line-height: 1.2em;
+        margin-top: 0;
+        margin-bottom: 0; }
+      .post-type-archive .portfolio-page-sr3 .portfolio_content .portfolio-info-in p, .tax-portfolio_category .portfolio-page-sr3 .portfolio_content .portfolio-info-in p {
+        font-weight: 400;
+        color: #43464b;
+        font-size: 16px;
+        padding-top: 21px; }
+    .post-type-archive .portfolio-page-sr3 .portfolio_content .flex-row-reverse .portfolio-info-in, .tax-portfolio_category .portfolio-page-sr3 .portfolio_content .flex-row-reverse .portfolio-info-in {
+      padding-right: 30px;
+      padding-left: 0;
+      text-align: right; }
+      @media (max-width: 768px) {
+        .post-type-archive .portfolio-page-sr3 .portfolio_content .flex-row-reverse .portfolio-info-in, .tax-portfolio_category .portfolio-page-sr3 .portfolio_content .flex-row-reverse .portfolio-info-in {
+          padding-left: 0;
+          padding-right: 0; } }
+      @media (max-width: 767px) {
+        .post-type-archive .portfolio-page-sr3 .portfolio_content .flex-row-reverse .portfolio-info-in, .tax-portfolio_category .portfolio-page-sr3 .portfolio_content .flex-row-reverse .portfolio-info-in {
+          text-align: left;
+          padding-top: 29px; } }
+    .post-type-archive .portfolio-page-sr3 .portfolio_content:hover, .tax-portfolio_category .portfolio-page-sr3 .portfolio_content:hover {
+      -webkit-box-shadow: 0px 0px 32px 0px rgba(20, 18, 18, 0.05);
+      box-shadow: 0px 0px 32px 0px rgba(20, 18, 18, 0.05); }
+      @media (max-width: 768px) {
+        .post-type-archive .portfolio-page-sr3 .portfolio_content:hover, .tax-portfolio_category .portfolio-page-sr3 .portfolio_content:hover {
+          -webkit-box-shadow: none;
+          box-shadow: none; } }
+  .post-type-archive .portfolio-page-sr3 .blog_pagination, .tax-portfolio_category .portfolio-page-sr3 .blog_pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 59px;
+    margin-top: 21px; }
+    .post-type-archive .portfolio-page-sr3 .blog_pagination .pagination li a, .tax-portfolio_category .portfolio-page-sr3 .blog_pagination .pagination li a {
+      border-radius: 50%;
+      margin: 5px;
+      color: #1d1e28;
+      font-size: 18px;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      text-align: center;
+      padding-top: 8px;
+      border: 1px solid #dee2e6;
+      background: #fff;
+      line-height: 1.25;
+      display: block; }
+    .post-type-archive .portfolio-page-sr3 .blog_pagination .pagination li.active a, .tax-portfolio_category .portfolio-page-sr3 .blog_pagination .pagination li.active a {
+      border-color: #f16334;
+      background: #f16334;
+      color: #fff; }
+    .post-type-archive .portfolio-page-sr3 .blog_pagination .pagination li span.pagi_dots, .tax-portfolio_category .portfolio-page-sr3 .blog_pagination .pagination li span.pagi_dots {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: end;
+      -ms-flex-align: end;
+      align-items: flex-end;
+      height: 100%; }
+
+/* fix--Single Content Element */
+.portfolio_element .elementor-widget-wrap .elementor-text-editor p {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 22px; }
+
+.portfolio_element .elementor-widget-wrap .first .elementor-text-editor p:first-child {
+  padding-top: 0; }
+
+.portfolio-page-si.element {
+  padding-top: 0;
+  padding-bottom: 0; }
+  .portfolio-page-si.element .button-group {
+    padding-bottom: 0; }
+    .portfolio-page-si.element .button-group button {
+      padding-left: 22px;
+      padding-right: 22px; }
+
+.portfolio-page-si .item-inner .popup-link {
+  opacity: 1; }
+
+.portfolio-page-si .item-inner .overlay:before {
+  -webkit-transition-delay: 0s !important;
+  -o-transition-delay: 0s !important;
+  transition-delay: 0s !important; }
+
+.portfolio-page-si .item-inner .overlay .view-list {
+  position: relative; }
+  .portfolio-page-si .item-inner .overlay .view-list:before, .portfolio-page-si .item-inner .overlay .view-list:after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    margin-left: -15px;
+    width: 30px;
+    height: 2px;
+    display: inline-block;
+    background-color: #fff; }
+  .portfolio-page-si .item-inner .overlay .view-list:before {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg); }
+  .portfolio-page-si .item-inner .overlay .view-list:after {
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg); }
+
+.portfolio-page-si .grid .grid-item h2.titles {
+  margin-top: 0;
+  margin-bottom: 0; }
+
+.portfolio-page-si .grid .grid-item .overlay h2 {
+  margin-top: 0;
+  margin-bottom: 0; }

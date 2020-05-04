@@ -1,1 +1,0 @@
-<?php get_template_part( 'templates/footer/bottom', talemy_get_option( 'footer_bottom_style' ) ); ?>

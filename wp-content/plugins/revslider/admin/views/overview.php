@@ -23,7 +23,6 @@ if($time < '12'){
 }elseif($time >= '12' && $time < '17'){
 	$hi = __('Good Afternoon ', 'revslider');
 }
-$rs_languages	= $rs_slider->get_available_languages();
 ?>
 <div id="rb_tlw">
 	<?php
@@ -36,7 +35,7 @@ $rs_languages	= $rs_slider->get_available_languages();
 
 
 
-<div id="rs_overview_menu" class="_TPRB_">
+<div id="rs_overview_menu">
 	<div class="rso_scrollmenuitem" data-ref="#rs_overview" ><i class="material-icons">view_module</i><?php _e('Modules', 'revslider');?></div>
 	<div class="rso_scrollmenuitem" data-ref="#plugin_update_row" ><i class="material-icons">update</i><?php _e('Updates', 'revslider');?></div>
 	<div class="rso_scrollmenuitem" data-ref="#plugin_activation_row"><i class="material-icons">vpn_key</i><?php _e('Activation', 'revslider');?></div>
@@ -46,7 +45,7 @@ $rs_languages	= $rs_slider->get_available_languages();
 	<div id="contactsupport" class="rso_scrollmenuitem"><i class="material-icons">contact_support</i><?php _e('Support', 'revslider');?></div>
 	<div class="rso_scrollmenuitem" id="rso_menu_notices"><div id="rs_notice_bell" class="notice_level_2"><i id="rs_notice_the_bell" class="material-icons">notifications_active</i></div><div class="notice_level_2" id="rs_notice_counter">0</div><ul id="rs_notices_wrapper"></ul></div>
 </div>
-<div id="rs_overview" class="rs_overview _TPRB_">
+<div id="rs_overview" class="rs_overview">
 	<div id="rsalienfakeplaceholder"></div>
 	<!-- WELCOME TO SLIDER REVOLUTION -->
 	<h2 id="rs_welcome_h2" class="title"><?php echo $hi; echo $current_user->display_name; echo '!'; ?></h2>
@@ -139,7 +138,7 @@ $rs_languages	= $rs_slider->get_available_languages();
 			<div class="div25"></div>
 			<div class="infobox">
 				<div class="bluetitle"><?php _e('1 Purchase Code per Website', 'revslider');?></div>
-				<div class="simpletext"><?php _e('If you want to use Slider Revolution on another domain, please <a href="https://www.themepunch.com/links/slider_revolution_wordpress_regular_license" target="_blank">purchase another license</a>', 'revslider');?></div>
+				<div class="simpletext"><?php _e('If you want to use Slider Revolution on another domain, please <a href="https://codecanyon.net/item/slider-revolution-responsive-wordpress-plugin/2751380?ref=themepunch&license=regular&open_purchase_for_item_id=2751380&purchasable=source" target="_blank">purchase another license</a>', 'revslider');?></div>
 			</div>
 		</div>
 		<!-- PLUGIN FEATURES -->

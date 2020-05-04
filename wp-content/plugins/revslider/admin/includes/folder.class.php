@@ -132,7 +132,6 @@ class RevSliderFolder extends RevSliderSlider {
 				}
 			}
 			$response = $wpdb->update($wpdb->prefix . RevSliderFront::TABLE_SLIDER, array('settings' => json_encode($settings)), array('id' => $folder_id));
-			$response = ($response == false && empty($wpdb->last_error)) ? true : $response;
 		}
 		
 		return $response;

@@ -222,6 +222,7 @@ class RevSliderPluginUpdate extends RevSliderFunctions {
 			
 			// new addition for global addons
 			$upd->change_global_addon_settings_to_6_0();
+			
 			$upd->set_version($version);
 		}
 		
@@ -230,14 +231,10 @@ class RevSliderPluginUpdate extends RevSliderFunctions {
 			$version = '6.1.4';
 			
 			$upd->change_animations_settings_to_6_0();
+			
 			$upd->set_version($version);
 		}
-		
-		//with 6.1.6, we only set the version and upgrade_slider_to_latest() will do the rest
-		if(version_compare($version, '6.1.6', '<')){
-			$version = '6.1.6';
-			$upd->set_version($version);
-		}
+
 	}
 	
 	/**
@@ -260,10 +257,6 @@ class RevSliderPluginUpdate extends RevSliderFunctions {
 		
 		if(version_compare($slider->get_setting('version', '1.0.0'), '6.1.4', '<')){
 			$upd->upgrade_slider_to_6_1_4($slider);
-		}
-		
-		if(version_compare($slider->get_setting('version', '1.0.0'), '6.1.6', '<')){
-			$upd->upgrade_slider_to_6_1_6($slider);
 		}
 	}
 	
@@ -352,74 +345,7 @@ class RevSliderPluginUpdate extends RevSliderFunctions {
 			}
 		}
 	}
-	
-	/**
-	 * check to convert the given Slider to latest versions
-	 * @since: 6.1.6
-	 * check in the slide transitions, if we have a transition with a ","
-	 * if this is the case, split it up
-	 **/
-	public function upgrade_slider_to_6_1_6($sliders = false){
-		$sr = new RevSliderSlider();
-		$sl = new RevSliderSlide();
-		
-		$sliders = ($sliders === false) ? $sr->get_sliders() : array($sliders); //do it on all Sliders if false
-		
-		if(!empty($sliders) && is_array($sliders)){
-			foreach($sliders as $slider){
-				$slides = $slider->get_slides(false, true);
-				$static_id = $sl->get_static_slide_id($slider->get_id());
-				if($static_id !== false){
-					$msl = new RevSliderSlide();
-					if(strpos($static_id, 'static_') === false){
-						$static_id = 'static_'. $static_id; //$slider->get_id();
-					}
-					$msl->init_by_id($static_id);
-					if($msl->get_id() !== ''){
-						$slides = array_merge($slides, array($msl));
-					}
-				}
-				
-				if(!empty($slides) && is_array($slides)){
-					foreach($slides as $slide){
-						$settings = $slide->get_settings();
-						if(version_compare($this->get_val($settings, 'version', '1.0.0'), '6.1.6', '<')){
-							$params = $slide->get_params();
-							$transitions = $this->get_val($params, array('timeline', 'transition'), array());
-							$new_transitions = array();
-							$save = false;
-							if(!empty($transitions) && is_array($transitions)){
-								foreach($transitions as $t => $v){
-									if(strpos($v, ',') !== false){
-										$save = true;
-										$_v = explode(',', $v);
-										if(!empty($_v)){
-											foreach($_v as $k => $__v){
-												$new_transitions[] = $__v;
-											}
-										}
-									}else{
-										$new_transitions[] = $v;
-									}
-								}
-								if($save){
-									$this->set_val($params, array('timeline', 'transition'), $new_transitions);
-									$slide->set_params($params);
-									$slide->save_params();
-								}
-							}
-							
-							$slide->settings['version'] = '6.1.6';
-							$slide->save_settings();
-						}
-					}
-				}
-				
-				$slider->update_settings(array('version' => '6.1.6'));
-			}
-		}
-	}
-	
+
 	/**
 	 * translates removed settings from Slider Settings from version <= 4.x to 5.0
 	 * before: RevSliderBase::translate_settings_to_v5()

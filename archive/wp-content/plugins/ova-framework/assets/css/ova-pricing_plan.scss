@@ -1,0 +1,81 @@
+.pricing-table-dig{
+	padding-top: 0;
+	padding-bottom: 0;
+	.price-head{
+		h2,h3{
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+	.price-body{
+		ul{
+			padding:0;
+			list-style: none;
+		}
+	}
+	.price-title{
+		h3{
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+		p{
+			margin-bottom: 0;
+		}
+		ul.tab-btns{
+			padding: 0;
+			list-style: none;
+		}
+	}
+	&.style1{
+		.row{
+			@media(max-width: 767px){
+				flex-direction: column-reverse;
+			}
+		}
+		.price-title{
+			@media(max-width: 767px){
+				padding-top: 0;
+				padding-bottom: 50px;
+			}
+		}
+	}
+}
+.pricing-table-dig-2 {
+	padding-top: 0;
+	padding-bottom: 0;
+	.price-style-two{
+		.price-head-2{
+			h2,h3,h4,h5,h6{
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+		}
+		.price-body-2{
+			ul{
+				padding:0;
+				margin: 0;
+				list-style: none;
+			}
+		}
+	}
+}
+
+.price-list-sec-style4{
+	padding-top: 0;
+	padding-bottom: 0;
+	.single-price-list{
+		.price-head{
+			h1,h2,h3,h4,h5,h6{
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+		}
+		.price-body{
+			ul{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+		}
+	}
+}

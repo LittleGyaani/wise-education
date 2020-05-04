@@ -63,7 +63,7 @@ $api = 'revapi'; // . $slider_id;
 			--><div id="gst_sl_10" data-select="#gst_sl_10" data-unselect=".general_submodule_trigger" class="general_submodule_trigger opensettingstrigger" data-collapse="true" data-forms='["#form_module_advanced"]'><i class="material-icons">timeline</i><span class="gso_title"><?php _e('Advanced', 'revslider');?></span></div><!--
 			--><div id="gst_sl_11" class="callEvent general_submodule_trigger openmodaltrigger" data-evt="openSliderApi"><i class="material-icons">code</i><span class="gso_title">CSS/jQuery</span></div><!--
 			--><div id="gst_sl_13" data-select="#gst_sl_13" data-unselect=".general_submodule_trigger" class="general_submodule_trigger opensettingstrigger" data-collapse="true" data-forms='["#form_slider_as_modal"]'><i class="material-icons">picture_in_picture</i><span class="gso_title"><?php _e('As Modal', 'revslider');?></span></div><!--
-			--><div id="gst_sl_14" class="callEvent general_submodule_trigger openmodaltrigger" data-evt="openColorSkinApi"><i class="material-icons">format_paint</i><span class="gso_title"><?php _e('Skin', 'revslider');?></span></div>
+			--><!--<div id="gst_sl_14" data-select="#gst_sl_14" data-unselect=".general_submodule_trigger" class="general_submodule_trigger opensettingstrigger" data-collapse="true" data-forms='["#form_template_skin"]'><i class="material-icons">format_paint</i><span class="gso_title"><?php _e('Skin', 'revslider');?></span></div>-->
 		</div>
 	</div>
 
@@ -87,7 +87,25 @@ $api = 'revapi'; // . $slider_id;
 			</div><!--END OF MODULE TITLE AND ALIAS AND SHORTCODE SETTINGS -->
 		</div>
 	</div><!-- END OF MODULE TITLE-->
-	
+
+	<!-- MODULE TITLE -->
+	<div class="form_collector slider_general_collector" data-type="sliderconfig" data-pcontainer="#slider_settings" data-offset="#rev_builder_wrapper">
+		<div id="form_template_skin"  data-select="#gst_sl_14"  class="formcontainer form_menu_inside">
+			<!-- MODULE TITLE AND ALIAS AND SHORTCODE SETTINGS-->
+			<div class="form_inner">
+				<div class="form_inner_header"><i class="material-icons">format_paint</i><?php _e('Color & Font Skin', 'revslider');?></div>
+				<div class="collapsable" style="display:block !important">
+					<div id="module_color_skins"></div>
+					<div id="add_skin_color" class="basic_action_button layerinput autosize rightbutton"><i class="material-icons">color_lens</i><?php _e('Add Color', 'revslider');?></div><div class="tp-clearfix"></div>
+					<div class="div20"></div>
+					<div id="module_font_skins"></div>					
+					<div id="add_skin_font" class="basic_action_button layerinput autosize rightbutton"><i class="material-icons">text_fields</i><?php _e('Add Font', 'revslider');?></div><div class="tp-clearfix"></div>
+					<div class="div20"></div>
+				</div><!-- END OF COLLAPSABLE-->
+			</div><!--END OF MODULE TITLE AND ALIAS AND SHORTCODE SETTINGS -->
+		</div>
+	</div><!-- END OF MODULE TITLE-->
+
 	<!-- SPINNER SETTINGS -->
 	<!-- SLIDER LAYOUT SETTINGS -->
 	<div class="form_collector slider_general_collector" data-type="sliderconfig" data-pcontainer="#slider_settings" data-offset="#rev_builder_wrapper">
@@ -208,9 +226,9 @@ $api = 'revapi'; // . $slider_id;
 					<div id="rs-layout-sizing">
 						<label_a><?php _e('Sizing', 'revslider');?></label_a>
 						<div class="radiooption">
-							<div class="sl_auto"><input data-select=".sl_auto" data-unselect=".sl_fullwidth, .sl_fullscreen" data-r="layouttype" data-enable="" data-disable=".fixedscrollonoff" data-evt="updatesliderlayout_main" type="radio" value="auto" name="sliderlayouttype" class="sliderinput" data-show=".topbottommargins, .fixedscrollsettingsinfo, .sliderminheight,.slidermaxwidth, #sr_size_minheight, .modalaligns" data-hide=".sliderfsminheight, .fixedscrollsettings,.decreaseheights,.usefullheight"><label_sub><?php _e('Auto', 'revslider');?></label_sub></div>
-							<div class="sl_fullwidth"><input data-select=".sl_fullwidth" data-unselect=".sl_auto, .sl_fullscreen" data-r="layouttype" data-enable=".fixedscrollonoff" data-evt="updatesliderlayout_main" type="radio" value="fullwidth" name="sliderlayouttype" class="sliderinput" data-show=".topbottommargins, .fixedscrollsettings,#sr_size_minheight .modalaligns" data-hide=".fixedscrollsettingsinfo,.sliderfsminheight, .slidermaxwidth, .sliderminheight,.decreaseheights,.usefullheight"><label_sub><?php _e('Full-Width', 'revslider');?></label_sub></div>
-							<div class="sl_fullscreen"><input data-select=".sl_fullscreen" data-unselect=".sl_auto, .sl_fullwidth" data-r="layouttype" data-enable=".fixedscrollonoff" data-evt="updatesliderlayout_main" type="radio" value="fullscreen" name="sliderlayouttype" class="sliderinput" data-show="#sr_size_minheight_fs,.fixedscrollsettings, .decreaseheights, .sliderfsminheight,.usefullheight" data-hide=".topbottommargins, .fixedscrollsettingsinfo,.slidermaxwidth,  .sliderminheight, .modalaligns"><label_sub><?php _e('Full-Screen', 'revslider');?></label_sub></div>
+							<div class="sl_auto"><input data-select=".sl_auto" data-unselect=".sl_fullwidth, .sl_fullscreen" data-r="layouttype" data-enable="" data-disable=".fixedscrollonoff" data-evt="updatesliderlayout_main" type="radio" value="auto" name="sliderlayouttype" class="sliderinput" data-show=".topbottommargins, .fixedscrollsettingsinfo, .sliderminheight,.slidermaxwidth, #sr_size_minheight, .modalaligns" data-hide=".sliderfsminheight, .fixedscrollsettings,.decreaseheights"><label_sub><?php _e('Auto', 'revslider');?></label_sub></div>
+							<div class="sl_fullwidth"><input data-select=".sl_fullwidth" data-unselect=".sl_auto, .sl_fullscreen" data-r="layouttype" data-enable=".fixedscrollonoff" data-evt="updatesliderlayout_main" type="radio" value="fullwidth" name="sliderlayouttype" class="sliderinput" data-show=".topbottommargins, .fixedscrollsettings,#sr_size_minheight .modalaligns" data-hide=".fixedscrollsettingsinfo,.sliderfsminheight, .slidermaxwidth, .sliderminheight,.decreaseheights"><label_sub><?php _e('Full-Width', 'revslider');?></label_sub></div>
+							<div class="sl_fullscreen"><input data-select=".sl_fullscreen" data-unselect=".sl_auto, .sl_fullwidth" data-r="layouttype" data-enable=".fixedscrollonoff" data-evt="updatesliderlayout_main" type="radio" value="fullscreen" name="sliderlayouttype" class="sliderinput" data-show="#sr_size_minheight_fs,.fixedscrollsettings, .decreaseheights, .sliderfsminheight" data-hide=".topbottommargins, .fixedscrollsettingsinfo,.slidermaxwidth,  .sliderminheight, .modalaligns"><label_sub><?php _e('Full-Screen', 'revslider');?></label_sub></div>
 						</div>
 					</div>
 					<div class="div10"></div>
@@ -273,36 +291,29 @@ $api = 'revapi'; // . $slider_id;
 			<div id="form_slider_layout_adv" class="form_inner open">
 				<div class="form_inner_header"><i class="material-icons">settings_input_component</i><?php _e('Advanced Settings', 'revslider');?></div>
 				<div class="collapsable">
-					
-					<div class="_nvojcm_ carouselunavailable standardavailable sceneavailable">
-						<!-- SLIDER MIN HEIGHT AND MAX WIDTH -->
-						<longoption class="slidermaxwidth"><i class="material-icons rcw">unfold_more</i><label_a><?php _e('Max Width', 'revslider');?></label_a><input data-allowed="px,%,none" data-min="0" data-numeric="true"  id="sr_size_maxwidth" data-r="size.maxWidth" data-evt="updatesliderlayout"  type="text"  class="sliderinput valueduekeyboard " placeholder="none"></longoption>
-						<longoption class="sliderminheight"><i class="material-icons">unfold_less</i><label_a><?php _e('Min Height', 'revslider');?></label_a><input data-min="0" data-numeric="true"  data-allowed="px,%,none" id="sr_size_minheight" data-r="size.minHeight" data-evt="updatesliderlayout"  type="text" class="sliderinput valueduekeyboard smallinput" placeholder="none"></longoption>
-						<longoption class="sliderfsminheight"><i class="material-icons">unfold_less</i><label_a><?php _e('Min Height', 'revslider');?></label_a><input data-min="0" data-numeric="true" data-allowed="none,px,%" id="sr_size_minheight_fs" data-r="size.minHeightFullScreen" placeholder="none" data-evt="updatesliderlayout"  type="text"  class="sliderinput valueduekeyboard "></longoption>
-						<longoption><i class="material-icons">unfold_more</i><label_a><?php _e('Wrapper Max Height', 'revslider');?></label_a><input data-allowed="px,%,none" data-min="0" data-numeric="true"  id="sr_size_maxheight" data-r="size.maxHeight"  type="text"  class="sliderinput valueduekeyboard " placeholder="none"></longoption>					
-						
-						<div class="div20"></div>
-						<longoption><i class="material-icons">devices</i><label_a><?php _e('Keep Breakpoint Heights', 'revslider');?></label_a><input type="checkbox"  id="sr_breakpoint_heights" class="easyinit sliderinput" data-r="size.keepBPHeight"/></longoption>
-						<longoption><i class="material-icons">aspect_ratio</i><label_a><?php _e('Respect Ratio', 'revslider');?></label_a><input type="checkbox"  id="sr_respectAR" class="easyinit sliderinput" data-evt="updatesliderlayout" data-r="size.respectAspectRatio"/></longoption>
-						<longoption><i class="material-icons">open_with</i><label_a><?php _e('Grid = Module', 'revslider');?></label_a><input type="checkbox"  id="sr_layersAlignOnModule" class="easyinit sliderinput" data-evt="" data-r="size.layersAlignOnModule"/></longoption>
-						<div class="div20"></div>
-						<longoption><i class="material-icons">tab_unselected</i><label_a><?php _e('Force Overflow Visible', 'revslider');?></label_a><input type="checkbox"  id="sr_forceOvVi" class="easyinit sliderinput" data-r="size.forceOverflow"/></longoption>
-						<longoption><i class="material-icons">vertical_align_top</i><label_a><?php _e('Fixed on Top', 'revslider');?></label_a><input type="checkbox" class="easyinit sliderinput"  data-r="layout.position.fixedOnTop"/></longoption>
-					</div>
+					<!-- SLIDER MIN HEIGHT AND MAX WIDTH -->
 
-					<!-- CAROUSEL ADVANCED SETTINGS -->
-					<div class="carouselavailable standardunavailable sceneunavailable">
-						<longoption><i class="material-icons">tab_unselected</i><label_a><?php _e('Force Overflow Hidden', 'revslider');?></label_a><input type="checkbox"  id="sr_forceOvHid" class="easyinit sliderinput" data-r="size.overflowHidden"/></longoption>
-						<longoption class="usefullheight"><i class="material-icons">unfold_more</i><label_a><?php _e('Use Full Height for Content', 'revslider');?></label_a><input type="checkbox"  id="sr_forceOvHid" class="easyinit sliderinput" data-r="size.useFullScreenHeight"/></longoption>	
-					</div>
+					<longoption class="slidermaxwidth"><i class="material-icons rcw">unfold_more</i><label_a><?php _e('Max Width', 'revslider');?></label_a><input data-allowed="px,%,none" data-min="0" data-numeric="true"  id="sr_size_maxwidth" data-r="size.maxWidth" data-evt="updatesliderlayout"  type="text"  class="sliderinput valueduekeyboard " placeholder="none"></longoption>
+					<longoption class="sliderminheight"><i class="material-icons">unfold_less</i><label_a><?php _e('Min Height', 'revslider');?></label_a><input data-min="0" data-numeric="true"  data-allowed="px,%,none" id="sr_size_minheight" data-r="size.minHeight" data-evt="updatesliderlayout"  type="text" class="sliderinput valueduekeyboard smallinput" placeholder="none"></longoption>
+					<longoption class="sliderfsminheight"><i class="material-icons">unfold_less</i><label_a><?php _e('Min Height', 'revslider');?></label_a><input data-min="0" data-numeric="true" data-allowed="none,px,%" id="sr_size_minheight_fs" data-r="size.minHeightFullScreen" placeholder="none" data-evt="updatesliderlayout"  type="text"  class="sliderinput valueduekeyboard "></longoption>
+					<longoption><i class="material-icons">unfold_more</i><label_a><?php _e('Wrapper Max Height', 'revslider');?></label_a><input data-allowed="px,%,none" data-min="0" data-numeric="true"  id="sr_size_maxheight" data-r="size.maxHeight"  type="text"  class="sliderinput valueduekeyboard " placeholder="none"></longoption>					
+					
+					<div class="div20"></div>
+					<longoption><i class="material-icons">devices</i><label_a><?php _e('Keep Breakpoint Heights', 'revslider');?></label_a><input type="checkbox"  id="sr_breakpoint_heights" class="easyinit sliderinput" data-r="size.keepBPHeight"/></longoption>
+					<longoption><i class="material-icons">aspect_ratio</i><label_a><?php _e('Respect Ratio', 'revslider');?></label_a><input type="checkbox"  id="sr_respectAR" class="easyinit sliderinput" data-evt="updatesliderlayout" data-r="size.respectAspectRatio"/></longoption>
+					<longoption><i class="material-icons">open_with</i><label_a><?php _e('Grid = Module', 'revslider');?></label_a><input type="checkbox"  id="sr_layersAlignOnModule" class="easyinit sliderinput" data-evt="" data-r="size.layersAlignOnModule"/></longoption>
+					<div class="div20"></div>
+					<longoption><i class="material-icons">tab_unselected</i><label_a><?php _e('Force Overflow Visible', 'revslider');?></label_a><input type="checkbox"  id="sr_forceOvVi" class="easyinit sliderinput" data-r="size.forceOverflow"/></longoption>
+					<longoption><i class="material-icons">vertical_align_top</i><label_a><?php _e('Fixed on Top', 'revslider');?></label_a><input type="checkbox" class="easyinit sliderinput"  data-r="layout.position.fixedOnTop"/></longoption>
 				</div>
 				<div class="div5"></div>
 			</div>
 
+
 			
 
 			<!-- SLIDER POSITION -->
-			<div id="form_slidergeneral_general_sr_position" class="form_inner open">
+			<div id="form_slidergeneral_general_sr_position" class="form_inner">
 				<div class="form_inner_header"><i class="material-icons">settings_overscan</i><?php _e('Module Position within Wrapper', 'revslider');?></div>
 				<div class="collapsable" style="display:block !important">
 					<!-- SLIDER POSITION SETTINGS -->
@@ -411,14 +422,10 @@ $api = 'revapi'; // . $slider_id;
 			<div id="form_slidergeneral_caroussel" class="form_inner">
 				<div class="form_inner_header"><i class="material-icons">view_carousel</i><?php _e('Carousel Layout', 'revslider');?></div>
 
-				<div class="collapsable" style="display:block !important">				
-					<longoption><label_a><?php _e('Keep Aspect Ratio (Justify)', 'revslider');?></label_a><input type="checkbox"  id="sr_ca_justi" class="sliderinput easyinit callEvent" data-evt="device_area_dimension_update" data-showhide=".nojustifywall" data-hideshow=".justifywall" data-showhidedep="false"  data-r="carousel.justify"/></longoption>
-					<div class="justifywall"><longoption><label_a><?php _e('Max Width 100%', 'revslider');?></label_a><input type="checkbox"  id="sr_ca_justi_maxwidth" class="sliderinput easyinit"  data-r="carousel.justifyMaxWidth"/></longoption></div>
-					<longoption><label_a><?php _e('Snap to X Alignment', 'revslider');?></label_a><input type="checkbox"  id="sr_ca_snap" class="sliderinput easyinit"  data-r="carousel.snap"/></longoption>
-					<longoption><label_a><?php _e('Infinity Scroll', 'revslider');?></label_a><input type="checkbox"  id="sr_ca_inf" class="sliderinput easyinit" data-evt="" data-r="carousel.infinity"/></longoption>
-					<div class="div20"></div>
-					<label_a><?php _e('Visible Layers', 'revslider');?></label_a><select id="sr_ca_showAllLayers" class="sliderinput tos2 nosearchbox easyinit" data-r="carousel.showAllLayers" data-show="._lavoc_*val*" data-hide="._lavoc_" data-showprio="show"><option value="false"><?php _e('If Slide in Focus', 'revslider');?></option><option value="all"><?php _e('Always on all Slide', 'revslider');?></option><option value="individual"><?php _e('Set by Layer Visibility', 'revslider');?></option></select>
-					<div class="div20"></div>
+				<div class="collapsable" style="display:block !important">
+					<!--<label_a><?php _e('Justify Wall', 'revslider');?></label_a><input type="checkbox"  id="sr_ca_justi" class="sliderinput easyinit callEvent" data-evt="device_area_dimension_update" data-showhide=".nojustifywall" data-showhidedep="false" data-evt="" data-r="carousel.justify"/><span class="linebreak"></span>-->
+					<label_a><?php _e('Infinity Scroll', 'revslider');?></label_a><input type="checkbox"  id="sr_ca_inf" class="sliderinput easyinit" data-evt="" data-r="carousel.infinity"/><span class="linebreak"></span>
+					<label_a><?php _e('Layers Visible', 'revslider');?></label_a><input type="checkbox"  id="sr_ca_showAllLayers" class="sliderinput easyinit" data-evt="" data-r="carousel.showAllLayers"/><span class="linebreak"></span>
 					<div class="nojustifywall">
 						<row class="directrow">
 							<onelong><label_a><?php _e('Max. Visible', 'revslider');?></label_a><select data-change="#sr_ca_stretch" data-changeto='false' data-changewhennot="1" data-evt="updatesliderlayout" id="sr_ca_mitems" class="sliderinput tos2 nosearchbox easyinit" data-r="carousel.maxItems" ><option value="1">1</option><option value="3">3</option><option value="5">5</option><option value="7">7</option><option value="9">9</option><option value="11">11</option><option value="13">13</option><option value="15">15</option><option value="17">17</option></select></onelong>
@@ -433,13 +440,12 @@ $api = 'revapi'; // . $slider_id;
 						<row class="directrow">
 							<onelong><label_icon class="ui_padding_top"></label_icon><input data-evt="updatesliderlayout" data-min="0"  id="sr_ca_pdt" data-r="carousel.paddingTop" data-numeric="true" data-allowed="px" data-evt=""  type="text"  class="sliderinput valueduekeyboard  easyinit" placeholder="none" ></onelong>
 							<oneshort><label_icon class="ui_padding_bottom"></label_icon><input data-evt="updatesliderlayout" data-min="0"  id="sr_ca_pdb" data-r="carousel.paddingBottom" data-numeric="true" data-allowed="px" data-evt=""  type="text"  class="sliderinput valueduekeyboard  easyinit" placeholder="none" ></oneshort>
-						</row>						
-					</div>
-					<row class="directrow">
-						<onelong><label_icon class="ui_x"></label_icon><select id="sr_ca_halign" class="sliderinput tos2 nosearchbox easyinit" data-r="carousel.horizontal" ><option value="left"><?php _e('Left', 'revslider');?></option><option value="center"><?php _e('Center', 'revslider');?></option><option value="right"><?php _e('Right', 'revslider');?></option></select></onelong>
-						<oneshort><label_icon class="ui_y"></label_icon><select id="sr_ca_valign" class="sliderinput tos2 nosearchbox easyinit" data-r="carousel.vertical" ><option value="top"><?php _e('Top', 'revslider');?></option><option value="center"><?php _e('Center', 'revslider');?></option><option value="bottom"><?php _e('Bottom', 'revslider');?></option></select></oneshort>
-					</row>
-				</div>
+						</row>
+						<row class="directrow">
+							<onelong><label_icon class="ui_x"></label_icon><select id="sr_ca_halign" class="sliderinput tos2 nosearchbox easyinit" data-r="carousel.horizontal" ><option value="left"><?php _e('Left', 'revslider');?></option><option value="center"><?php _e('Center', 'revslider');?></option><option value="right"><?php _e('Right', 'revslider');?></option></select></onelong>
+							<oneshort><label_icon class="ui_y"></label_icon><select id="sr_ca_valign" class="sliderinput tos2 nosearchbox easyinit" data-r="carousel.vertical" ><option value="top"><?php _e('Top', 'revslider');?></option><option value="center"><?php _e('Center', 'revslider');?></option><option value="bottom"><?php _e('Bottom', 'revslider');?></option></select></oneshort>
+						</row>
+				</div></div>
 			</div>
 
 			<div id="form_slidergeneral_caroussel_animation" class="form_inner">
@@ -450,7 +456,7 @@ $api = 'revapi'; // . $slider_id;
 				</div>
 			</div>
 
-			<div id="form_slidergeneral_caroussel_effects" class="form_inner nojustifywall">				
+			<div id="form_slidergeneral_caroussel_effects" class="form_inner">
 				<div class="form_inner_header"><i class="material-icons">linear_scale</i><?php _e('Effects', 'revslider');?></div>
 				<div class="collapsable" style="display:block !important">
 					<row class="directrow">
@@ -469,12 +475,9 @@ $api = 'revapi'; // . $slider_id;
 					<row class="directrow">
 						<onelong><label_a><?php _e('Scale', 'revslider');?></label_a><input type="checkbox" data-evt="updatesliderlayout" data-showhide=".carosel_scale_vary_wrap" data-showhidedep="true"  id="sr_ca_scale" class="sliderinput easyinit" data-evt="" data-r="carousel.scale"/></onelong>
 						<oneshort class="carosel_scale_vary_wrap">
-							<label_icon class="ui_max_scaledown"></label_icon><input data-evt="updatesliderlayout" data-min="0"  id="sr_ca_scaleDown" data-r="carousel.scaleDown" data-numeric="true" data-allowed="%" data-evt=""  type="text"  class="sliderinput valueduekeyboard  easyinit"><span class="linebreak"></span>							
+							<label_icon class="ui_max_scaledown"></label_icon><input data-evt="updatesliderlayout" data-min="0"  id="sr_ca_scaleDown" data-r="carousel.scaleDown" data-numeric="true" data-allowed="%" data-evt=""  type="text"  class="sliderinput valueduekeyboard  easyinit"><span class="linebreak"></span>
+							<label_icon class="ui_v_scale"></label_icon><input data-evt="updatesliderlayout" type="checkbox"  id="sr_ca_vscale" class="sliderinput easyinit" data-evt="" data-r="carousel.varyScale"/>
 						</oneshort>
-					</row>
-					<row class="directrow carosel_scale_vary_wrap">
-						<onelong><label_a><?php _e('Scale Offset', 'revslider');?></label_a><input type="checkbox" data-evt="updatesliderlayout" id="sr_ca_offsetscale" class="sliderinput easyinit" data-evt="" data-r="carousel.offsetScale"/></onelong>
-						<oneshort><label_icon class="ui_v_scale"></label_icon><input data-evt="updatesliderlayout" type="checkbox"  id="sr_ca_vscale" class="sliderinput easyinit" data-evt="" data-r="carousel.varyScale"/></oneshort>
 					</row>
 				</div><!-- END OF COLLAPSABLE-->
 			</div>

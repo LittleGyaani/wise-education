@@ -280,7 +280,6 @@ if(!defined('ABSPATH')) exit();
 											data-frame_1="sR:10;"
 											data-frame_999="o:0;st:w;sR:8690;"
 											style="z-index:22;"
-											id="2449a"
 										> 
 										</a><!--
 									--></rs-slide>

@@ -9,11 +9,10 @@
  */
  
 if(!defined('ABSPATH')) exit();
-
 ?>
 
 <!--WELCOME MODAL-->
-<div class="_TPRB_ rb-modal-wrapper" data-modal="rbm_welcomeModal">
+<div class="rb-modal-wrapper" data-modal="rbm_welcomeModal">
 	<div class="rb-modal-inner">
 		<div class="rb-modal-content">
 			<div id="rbm_welcomeModal" class="rb_modal form_inner">
@@ -58,7 +57,7 @@ if(!defined('ABSPATH')) exit();
 
 
 <!--GLOBAL SETTINGS MODAL-->
-<div class="_TPRB_ rb-modal-wrapper" data-modal="rbm_globalsettings">
+<div class="rb-modal-wrapper" data-modal="rbm_globalsettings">
 	<div class="rb-modal-inner">
 		<div class="rb-modal-content">
 			<div id="rbm_globalsettings" class="rb_modal form_inner">
@@ -71,17 +70,6 @@ if(!defined('ABSPATH')) exit();
 										<option selected="selected" value="admin"><?php _e('To Admin', 'revslider');?></option>
 										<option value="editor"><?php _e('To Editor, Admin', 'revslider');?></option>
 										<option value="author"><?php _e('Author, Editor, Admin', 'revslider');?></option>
-									</select><span class="linebreak"></span>
-						<div class="div15"></div>
-						<label_a><?php _e('Language', 'revslider');?></label_a><select id="plugin_lang" name="plugin_lang" data-theme="inmodal" class="globalinput easyinit nosearchbox tos2" data-r="globals.lang">
-										<option selected="selected" value="default"><?php _e('Default', 'revslider');?></option>
-										<?php
-										if(isset($rs_languages) && !empty($rs_languages)){
-											foreach($rs_languages as $rs_l => $rs_n){
-												echo '<option value="'.$rs_l.'">'.$rs_n.'</option>';
-											}
-										}
-										?>
 									</select><span class="linebreak"></span>
 						<div class="div15"></div>
 						<label_a><?php _e('Include libraries globally', 'revslider');?></label_a><input type="checkbox" class="easyinit globalinput" data-r="globals.allinclude"><span class="linebreak"></span>

@@ -1,0 +1,101 @@
+.ova_about_team {
+	h4, p {
+		margin: 0;
+	}
+	ul {
+		padding-left: 0;
+		li {
+			padding: 0 15px;
+			a i {
+				font-size: 20px;
+				transition: .3s all linear;
+				&:hover {
+					color: #f16334;
+					transition: .3s all linear;
+				}
+			}
+		}
+	}
+	.container {
+		max-width: 1200px!important;
+	}
+	.single-team-dig {
+		padding: 50px 0 41px 0;
+		width: auto;
+		border-radius: 10px;
+		transition: .3s all linear;
+		@media (max-width: 767px) {
+			background-color: #ffffff;
+		}
+		&:hover {
+			background-color: #ffffff;
+			-moz-box-shadow: 0 0 38px 0px rgba(240,98,52,0.29);
+			-webkit-box-shadow: 0 0 38px 0px rgba(240,98,52,0.29);
+			box-shadow: 0 0 38px 0px rgba(240,98,52,0.29);
+			transition: .3s all linear;
+		}
+		.author {
+			transition: .3s all linear;
+			padding-top: 44px;
+			font-size: 30px;
+			line-height: 36px;
+			&:hover {
+				color: #f16334;
+				transition: .3s all linear;
+			}
+		}
+		.job {
+			padding-top: 4px;
+			padding-bottom: 12px;
+			font-size: 18px;
+			line-height: 36px;
+		}
+	}
+
+	.ova_about_team_grid {
+		margin: 0 -10px;
+		.wrap_item {
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			.items {
+				width: 33.333333333%;
+				padding: 0 15px;
+				@media (max-width: 767px) {
+					width: 100%;
+				}
+				.single-team-dig {
+					margin: 0 0 30px 0;
+					margin-right: -5px;
+					margin-left: -5px;
+				}
+			}
+		}
+	}
+
+	.ova_about_team_slider {
+		margin: 0 -10px;
+		img {
+			display: inline-block!important;
+			width: auto!important;
+		}
+		.owl-carousel .owl-dots {
+			text-align: center;
+			width: 100%;
+			margin-top: 73px;
+			button.owl-dot {
+				border: 1px solid #f06234;
+				width: 25px;
+				height: 25px;
+				-webkit-border-radius: 50%;
+				border-radius: 50%;
+				background: none;
+				margin: 0 4px;
+				outline: 0;
+				&.active {
+					background-color: #f06234;
+				}
+			}
+		}
+	}
+}

@@ -4,9 +4,7 @@ Plugin Name: Slider Revolution
 Plugin URI: https://revolution.themepunch.com/
 Description: Slider Revolution - Premium responsive slider
 Author: ThemePunch
-Text Domain: revslider
-Domain Path: /languages
-Version: 6.1.8
+Version: 6.1.5
 Author URI: https://themepunch.com/
 */
 
@@ -17,7 +15,7 @@ if(class_exists('RevSliderFront')){
 	die('ERROR: It looks like you have more than one instance of Slider Revolution installed. Please remove additional instances for this plugin to work again.');
 }
 
-define('RS_REVISION',			'6.1.8');
+define('RS_REVISION',			'6.1.5');
 define('RS_PLUGIN_PATH',		plugin_dir_path(__FILE__));
 define('RS_PLUGIN_SLUG_PATH',	plugin_basename(__FILE__));
 define('RS_PLUGIN_FILE_PATH',	__FILE__);
@@ -58,18 +56,13 @@ require_once(RS_PLUGIN_PATH . 'public/revslider-front.class.php');
 require_once(RS_PLUGIN_PATH . 'includes/backwards.php');
 
 try{
-	RevSliderFunctions::set_memory_limit();
 	
 	function rev_slider_shortcode($args, $mid_content = null){
 		extract(shortcode_atts(array('alias'	=> ''), $args, 'rev_slider'));
 		extract(shortcode_atts(array('settings' => ''), $args, 'rev_slider'));
 		extract(shortcode_atts(array('order'	=> ''), $args, 'rev_slider'));
 		extract(shortcode_atts(array('usage'	=> ''), $args, 'rev_slider'));
-		extract(shortcode_atts(array('modal'	=> ''), $args, 'rev_slider'));
-		extract(shortcode_atts(array('layout'	=> ''), $args, 'rev_slider'));
-		extract(shortcode_atts(array('offset'	=> ''), $args, 'rev_slider'));
-		extract(shortcode_atts(array('skin'		=> ''), $args, 'rev_slider'));
-		extract(shortcode_atts(array('zindex'	=> ''), $args, 'rev_slider'));
+		extract(shortcode_atts(array('skin'	=> ''), $args, 'rev_slider'));
 		
 		$output = new RevSliderOutput();
 		
@@ -88,14 +81,10 @@ try{
 		if($gallery_ids !== false) $output->set_gallery_ids($gallery_ids);
 		
 		ob_start();
-		$slider = $output->add_slider_to_stage($slider_alias, $usage, $layout, $offset, $modal);
+		$slider = $output->add_slider_to_stage($slider_alias, $usage);
 		$content = ob_get_contents();
 		ob_clean();
 		ob_end_clean();
-
-		if(!empty($zindex)){
-			$content = '<div class="wp-block-themepunch-revslider" style="z-index:'.$zindex.';">' .$content. '</div>';
-		}
 		
 		if(!empty($slider)){
 			switch($slider->get_param(array('troubleshooting', 'outPutFilter'), '')){
@@ -172,7 +161,6 @@ try{
 			ob_end_clean();
 			
 			echo $content;
-
 		}
 		
 		$rev_slider_front = new RevSliderFront();

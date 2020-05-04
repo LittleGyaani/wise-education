@@ -68,7 +68,6 @@ class RevSliderFacebook extends RevSliderFunctions {
 	public function get_photo_sets($user_id, $item_count = 10, $access_token){
 		//photoset params
 		$url = "https://graph.facebook.com/$user_id/albums?access_token=" . $access_token;
-
 		$photo_sets_list = json_decode(wp_remote_fopen($url));
 		if(!empty($photo_sets_list->error->message)){
 			return array("error",$photo_sets_list->error->message);
@@ -567,7 +566,6 @@ class RevSliderInstagram  extends RevSliderFunctions {
 			$transient_name = 'revslider_'. md5($cacheKey);
 			if($this->transient_sec > 0 && false !== ($data = get_transient($transient_name))){
 				$this->stream = $data;
-				
 				return $this->stream;
 			}
 			else
@@ -576,16 +574,13 @@ class RevSliderInstagram  extends RevSliderFunctions {
 				//Getting instragram images
 				$instagram = new Instagram();
 				$medias = $instagram->getMedias($search_user_id, $count);
-				
-				
+
 				if($medias != null){
 					$rsp = json_decode(json_encode($medias));
 				}else{
 					//Fallback function 12 photos
 					$rsp = json_decode(json_encode($this->getFallbackImages($search_user_id)));
 				}
-
-				
 
 				if(isset($rsp->edge_owner_to_timeline_media))
 					$count = $this->instagram_output_array($rsp->edge_owner_to_timeline_media->edges, $count, $search_user_id, $orig_image);
@@ -750,6 +745,7 @@ class RevSliderInstagram  extends RevSliderFunctions {
 					_e('Instagram reports: Please check the settings','revslider');
 					return false;
 				}
+
 				
 				while($count){
 					$url = 'https://www.instagram.com/explore/locations/'.$search_user_id.'/?__a=1&max_id='.$rsp->graphql->location->edge_location_to_media->page_info->end_cursor;
@@ -782,14 +778,13 @@ class RevSliderInstagram  extends RevSliderFunctions {
 	 */
 	private function instagram_output_array($photos,$count,$search_user_id,$orig_image=""){
 		$this->stream = $photos;
-
+		
 		foreach ($photos as $photo) {
 			if($count > 0){
 				$count--;
 				$this->stream[] = $photo;
 			}
 		}
-
 		return $count;
 	}
 
@@ -1472,7 +1467,7 @@ class RevSliderFlickr extends RevSliderFunctions {
 		
 		//get photo list
 		$gallery_photos_list = $this->call_flickr_api($gallery_photo_params);
-
+		
 		return $this->get_val($gallery_photos_list, array('photos', 'photo'), '');
 	}
 }	// End Class

@@ -100,13 +100,7 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 				wp_dequeue_script('tp-tools');
 			}
 			
-			$wait_for = array('media-editor', 'media-audiovideo');
-			if(is_admin()){
-				$wait_for[] = 'mce-view';
-				$wait_for[] = 'image-edit';
-			}
-			$wait_for = array();
-			wp_enqueue_script('tp-tools', RS_PLUGIN_URL . 'public/assets/js/revolution.tools.min.js', $wait_for, RS_TP_TOOLS);
+			wp_enqueue_script('tp-tools', RS_PLUGIN_URL . 'public/assets/js/revolution.tools.min.js', array(), RS_TP_TOOLS);
 			
 			if($this->dev_mode){
 				wp_enqueue_script('revbuilder-admin', RS_PLUGIN_URL . 'admin/assets/js/modules/admin.js', array('jquery'), RS_REVISION, false);
@@ -224,8 +218,7 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 	 */
 	public function add_slider_meta_box($post_types = null){
 		try {
-			$post_types = array('post','page');
-			add_meta_box('slider_revolution_metabox', 'Slider Revolution', array('RevSliderAdmin', 'add_meta_box_content'), $post_types, 'side', 'default');
+			add_meta_box('mymetabox_revslider_0', 'Slider Revolution Options', array('RevSliderAdmin', 'add_meta_box_content'), $post_types, 'normal', 'default');
 		} catch (Exception $e){}
 	}
 
@@ -246,49 +239,25 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 
 		$meta = get_post_meta(get_the_ID(), 'slide_template', true);
 		$meta = ($meta == '') ? 'default' : $meta;
-
-		$page_bg = get_post_meta(get_the_ID(), 'rs_page_bg_color', true);
-		$page_bg = ($page_bg == '') ? '' : $page_bg;
-
-		$blank = get_page_template_slug(get_the_ID()) == "../public/views/revslider-page-template.php";
-		$blankcheck = $blank ? 'checked' : '';
-		$hide_page_bg =  $blank ? '' : 'style="display:none;"';
-		
 		
 		$slides = $slider->get_sliders_with_slides_short('template');
 		$output = $output + $slides; //union arrays
-
-		$latest_version	= get_option('revslider-latest-version', RS_REVISION);
-
 		?>
-		<ul class="revslider_settings _TPRB_">
+		<ul class="revslider_settings">
 			<li id="slide_template_row">
-				<label class="rs_wp_ppset" for="revslider_blank_template"><?php _e('Blank Template','revslider'); ?></label><input id="rs_blank_template" name="rs_blank_template" <?php echo $blankcheck;?> class="" type="checkbox" >
-			</li>
-			<li id="slide_template_row">
-				<div id="rs_page_bg_color_column" class="" <?php echo $hide_page_bg;?>>
-					<label class="rs_wp_ppset"><?php _e('Page Color', 'revslider');?></label><input type="text" data-editing="<?php _e('Background Color', 'revslider');?>" name="rs_page_bg_color" id="rs_page_bg_color" class="my-color-field" value="<?php echo $page_bg; ?>">					
+				<div title="" class="setting_text" id="slide_template_text"><?php _e('Choose Slide Template', 'revslider');?></div>
+				<div class="setting_input">
+					<select name="slide_template" id="slide_template">
+						<?php
+						foreach($output as $handle => $name){
+							echo '<option ' . selected($handle, $meta) . ' value="' . $handle . '">' . $name . '</option>';
+						}
+						?>
+					</select>
 				</div>
-				<div class="clear"></div>				
-			</li>
-			<li id="slide_template_row">				
-					<label class="rs_wp_ppset" id="slide_template_text"><?php _e('Slide Template', 'revslider');?></label><select style="max-width:82px" name="slide_template" id="slide_template">
-							<?php
-							foreach($output as $handle => $name){
-								echo '<option ' . selected($handle, $meta) . ' value="' . $handle . '">' . $name . '</option>';
-							}
-							?></select>				
-			</li>
-			<li id="slide_template_row" style="margin-top:40px">
-				<solidiconbox><i class="material-icons">flag</i></solidiconbox><div class="pli_twoline_wp"><div class="pli_subtitle"><?php _e('Installed Version', 'revslider');?></div><div class="dynamicval pli_subtitle"><?php echo RS_REVISION; ?></div></div>
-				<div class="div5"></div>
-				<solidiconbox id="available_version_icon"><i class="material-icons">cloud_download</i></solidiconbox><div id="available_version_content" class="pli_twoline_wp"><div class="pli_subtitle"><?php _e('Available Version', 'revslider');?></div><div class="available_latest_version dynamicval pli_subtitle"><?php echo $latest_version; ?></div></div>				
-			</li>
-			<li>
-				<div class="rs_wp_plg_act_wrapper"><span><?php _e('Unlock All Features', 'revslider');?></span></div>
+				<div class="clear"></div>
 			</li>
 		</ul>
-		
 		<?php
 	}
 	
@@ -303,26 +272,11 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 		$f = new RevSliderFunctions();
 		
 		$post_id = $f->get_post_var('ID');
-
 		if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return $post_id; //protection against autosave
 		if(empty($post_id)) return false;
 		
-		// Slide Template
-		$slide_template = $f->get_post_var('slide_template');
-		update_post_meta($post_id, 'slide_template', $slide_template);
-
-		// Blank Page Template Background Color
-		$rs_page_bg_color = $f->get_post_var('rs_page_bg_color');
-		update_post_meta($post_id, 'rs_page_bg_color', $rs_page_bg_color);
-
-		// Set/Unset Blank Template depending on Blank Template Switch
-		$rs_blank_template = $f->get_post_var('rs_blank_template');
-		if( empty( $rs_blank_template ) && !empty($rs_page_bg_color)  && get_post_meta($post_id, '_wp_page_template',true) == '../public/views/revslider-page-template.php' ){
-			update_post_meta($post_id, '_wp_page_template','');
-		}
-		if( !empty( $rs_blank_template ) &&  $rs_blank_template=="on" ) {
-			update_post_meta($post_id, '_wp_page_template','../public/views/revslider-page-template.php');
-		}
+		$value = $f->get_post_var('slide_template');
+		update_post_meta($post_id, 'slide_template', $value);
 	}
 	
 	
@@ -400,16 +354,6 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 	 **/
 	public function add_filters(){
 		add_filter('admin_body_class', array($this, 'modify_admin_body_class'));
-		
-		add_filter('plugin_locale', array($this, 'change_lang'), 10, 2);
-	}
-	
-	/**
-	 * Change the language of the Sldier Backend even if WordPress is set to be a different language
-	 * @since: 6.1.6
-	 **/
-	public function change_lang($locale, $domain = ''){
-		return (in_array($domain, array('revslider', 'revsliderhelp'), true)) ? $this->get_val($this->global_settings, 'lang', 'default') : $locale;
 	}
 
 	/**
@@ -1027,38 +971,10 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 						if( $sliderony->get_alias() == $alias ){
 							$slider_found = $sliderony->get_overview_data();
 							$return = $slider_found["bg"]["src"];
-							$title = $slider_found['title'];
 						}
 					}
 					
-					if(!$return) $return = "";
-
-					if(!empty($title)){
-						$this->ajax_response_data(array('image' => $return, 'title' => $title));
-					}
-					else{
-						$this->ajax_response_error( __('The Slider with the alias "' . $alias . '" is not available!', 'revslider') );
-					}
-				break;
-				case 'getSliderSizeLayout':
-					// Available Sliders
-					$slider = new RevSliderSlider();
-					$arrSliders = $slider->get_sliders();
-					$post60		= (version_compare($slider->get_setting('version', '1.0.0'), '6.0.0', '<')) ? false : true;
-					// Given Alias
-					$alias = $this->get_val($data, 'alias');
-					
-					$return = array_search($alias,$arrSliders);
-
-					foreach($arrSliders as $sliderony){
-						if( $sliderony->get_alias() == $alias ){
-							$slider_found = $sliderony->get_overview_data();
-							$return = $slider_found['size'];
-							$title = $slider_found['title'];
-						}
-					}
-					
-					$this->ajax_response_data(array('layout' => $return, 'title' => $title));
+					$this->ajax_response_data(array('image' => $return));
 				break;
 				case 'get_list_of':
 					$type = $this->get_val($data, 'type');
@@ -1462,8 +1378,7 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 					//get dimensions of slider
 					$size = array(
 						'width'	 => $slider->get_param(array('size', 'width'), array()),
-						'height' => $slider->get_param(array('size', 'height'), array()),
-						'custom' => $slider->get_param(array('size', 'custom'), array())
+						'height' => $slider->get_param(array('size', 'height'), array())
 					);
 					
 					if(empty($size['width'])){
@@ -1491,7 +1406,7 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 					ob_clean();
 					ob_end_clean();
 					
-					$this->ajax_response_data(array('html' => $html, 'size' => $size, 'layouttype' => $slider->get_param('layouttype', 'fullwidth')));
+					$this->ajax_response_data(array('html' => $html, 'size' => $size));
 					
 					exit;
 				break;
@@ -1682,8 +1597,7 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 					$response	= array('open' => false, 'edit' => false);
 					$slider_ids = $this->get_val($data, 'slider_ids');
 					$modals		= $this->get_val($data, 'modals', array());
-					$additions	= $this->get_val($data, 'additions', array());
-					$page_id	= $admin->create_slider_page($slider_ids, $modals, $additions);
+					$page_id	= $admin->create_slider_page($slider_ids, $modals);
 					
 					if($page_id > 0){
 						$response['open'] = get_permalink($page_id);
@@ -1961,9 +1875,6 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 				case 'get_slider_html':
 					$alias = $this->get_post_var('alias', '');
 					$usage = $this->get_post_var('usage', '');
-					$modal = $this->get_post_var('modal', '');
-					$layout = $this->get_post_var('layout', '');
-					$offset = $this->get_post_var('offset', '');
 					$id = intval($this->get_post_var('id', 0));
 					
 					//check if $alias exists in database, transform it to id
@@ -1978,7 +1889,7 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 						$slider = new RevSliderOutput();
 						$slider->set_ajax_loaded();
 						
-						$slider_class = $slider->add_slider_to_stage($id, $usage,$layout,$offset,$modal);
+						$slider_class = $slider->add_slider_to_stage($id, $usage);
 						$html = ob_get_contents();
 						ob_clean();
 						ob_end_clean();
@@ -2294,11 +2205,10 @@ class RevSliderAdmin extends RevSliderFunctionsAdmin {
 	 **/
 	public function generate_attachment_metadata(){
 		$rs_meta_create = get_option('rs_image_meta_todo', array());
-		
 		if(!empty($rs_meta_create)){
 			foreach($rs_meta_create as $attach_id => $save_dir){
-				if($attach_data = @wp_generate_attachment_metadata($attach_id, $save_dir)){
-					@wp_update_attachment_metadata($attach_id, $attach_data);
+				if($attach_data = wp_generate_attachment_metadata($attach_id, $save_dir)){
+					wp_update_attachment_metadata($attach_id, $attach_data);
 				}
 				unset($rs_meta_create[$attach_id]);
 				

@@ -1,0 +1,192 @@
+@charset "UTF-8";
+/* Single */
+.single_case_study .our-support-tw h3, .single_case_study .our-support-tw p {
+  margin: 0;
+}
+
+.single-case-st .card-body h3, .single-case-st .card-body p {
+  margin: 0;
+}
+.single-case-st .card-body .btn {
+  font-weight: 500;
+  padding: 0;
+  color: #f16334;
+  font-size: 16px;
+}
+.single-case-st .card-body .btn i {
+  padding-left: 10px;
+}
+
+/* Archive */
+.archive_case_study .container {
+  max-width: 1200px !important;
+}
+.archive_case_study .wrap_item {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.archive_case_study .wrap_item .items {
+  width: 33.33333333%;
+  padding: 0 15px;
+}
+@media (max-width: 767px) {
+  .archive_case_study .wrap_item .items {
+    width: 50%;
+  }
+}
+@media (max-width: 670px) {
+  .archive_case_study .wrap_item .items {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+.archive_case_study .wrap_item .items .card-body {
+  padding-top: 12px;
+}
+.archive_case_study .wrap_item .items .card-body .title {
+  margin: 0;
+  padding: 0 0 8px 0;
+}
+.archive_case_study .wrap_item .items .card-body .title a {
+  transition: 0.3s all ease;
+  font-size: 24px;
+  color: #43464b;
+}
+.archive_case_study .wrap_item .items .card-body .title a:hover {
+  color: #f06334;
+  transition: 0.3s all ease;
+}
+.archive_case_study .wrap_item .items .card-body p {
+  line-height: 28px;
+}
+.archive_case_study .blog_pagination {
+  text-align: center;
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.archive_case_study .blog_pagination .pagination li a {
+  border-radius: 5px;
+  margin-right: 10px;
+  color: #333333;
+  padding: 5px 20px;
+  text-align: center;
+  font-weight: 700;
+  border: none !important;
+  height: 50px;
+  width: 50px;
+  background-color: #f06334;
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+.archive_case_study .blog_pagination .pagination li a:focus, .archive_case_study .blog_pagination .pagination li a:hover {
+  border: 1px solid #343434;
+  background-color: #343434;
+  color: #fff;
+}
+.archive_case_study .blog_pagination .pagination li.active a {
+  background-color: #343434;
+  color: #fff;
+}
+.archive_case_study .blog_pagination .pagination li i {
+  font-family: fontAweSome;
+}
+.archive_case_study .blog_pagination .pagination li.prev i:before {
+  content: "" !important;
+}
+.archive_case_study .blog_pagination .pagination li.next i:before {
+  content: "" !important;
+}
+
+/* Elementor */
+.elementor_case_study {
+  margin: 0 -15px;
+}
+@media (max-width: 1024px) {
+  .elementor_case_study {
+    margin: 0 -10px;
+  }
+}
+.elementor_case_study .wrap_item {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.elementor_case_study .wrap_item .items {
+  width: 33.33333333%;
+  padding: 0 15px;
+}
+@media (max-width: 525px) {
+  .elementor_case_study .wrap_item .items {
+    width: 100%;
+  }
+}
+.elementor_case_study .wrap_item .items:hover .card img {
+  transition: 0.3s all ease;
+  -moz-box-shadow: 0 0 38px 0px rgba(240, 98, 52, 0.1);
+  -webkit-box-shadow: 0 0 38px 0px rgba(240, 98, 52, 0.1);
+  box-shadow: 0 0 38px 0px rgba(240, 98, 52, 0.1);
+}
+.elementor_case_study .wrap_item .items .card img {
+  border-radius: 10px;
+  transition: 0.3s all ease;
+}
+.elementor_case_study .wrap_item .items .card .card-body h4, .elementor_case_study .wrap_item .items .card .card-body p {
+  margin: 0;
+}
+.elementor_case_study .wrap_item .items .card .card-body h4 a {
+  transition: 0.3s all ease;
+}
+.elementor_case_study .wrap_item .items .card .card-body h4 a:hover {
+  transition: 0.3s all ease;
+  color: #f06334;
+}
+.elementor_case_study .wrap_item .items .card .card-body .readmore {
+  letter-spacing: 0.1px;
+  text-transform: none;
+  font-size: 18px;
+  line-height: 34px;
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+}
+.elementor_case_study .wrap_item .items .card .card-body .readmore.btn {
+  margin-top: 8px;
+  outline: none;
+  box-shadow: none;
+}
+.elementor_case_study .wrap_item .items .card .card-body .readmore:hover {
+  color: #25282e;
+}
+.elementor_case_study .wrap_item .items .card .card-body .readmore:hover i {
+  color: #25282e;
+}
+.elementor_case_study .wrap_item .items .card .card-body .readmore:hover i:last-child {
+  opacity: 0;
+}
+.elementor_case_study .wrap_item .items .card .card-body .readmore:hover i:first-child {
+  transition: 0.5s;
+  opacity: 1;
+  left: calc(100% - 28px);
+  transform: translate(0, -50%);
+}
+.elementor_case_study .wrap_item .items .card .card-body .readmore i:first-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.elementor_case_study .wrap_item .items .card .card-body .readmore i:before {
+  margin-left: 0px;
+  font-size: 18px;
+}
+
+/*# sourceMappingURL=ovacs-style.css.map */

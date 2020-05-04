@@ -258,7 +258,7 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 	 * create a page with revslider shortcodes included
 	 * @before: RevSliderOperations::create_slider_page();
 	 **/
-	public static function create_slider_page($added, $modals = array(), $additions = array()){
+	public static function create_slider_page($added, $modals = array()){
 		global $wp_version;
 		
 		$new_page_id = 0;
@@ -275,29 +275,20 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 				$slider->init_by_id($sid);
 				$alias = $slider->get_alias();
 				if($alias !== ''){
-					$usage		= (in_array($sid, $modals, true)) ? ' usage="modal"' : '';
-					$addition	= (isset($additions[$sid])) ? ' ' . $additions[$sid] : '';
-					if(strpos($addition, 'usage=\"modal\"') !== false) $usage = ''; //remove as not needed two times
+					$usage = (in_array($sid, $modals, true)) ? ' usage="modal"' : '';
 					
 					if(version_compare($wp_version, '5.0', '>=')){ //add gutenberg code
 						$ov_data = $slider->get_overview_data();
 						$title	 = $slider->get_val($ov_data, 'title', '');
+						$_title  = ($title !== '') ? ' data-slidertitle="'.$title.'"' : '';
 						$img	 = $slider->get_val($ov_data, array('bg', 'src'), '');
-						$wrap_addition	= ($img !== '') ? ',"sliderImage":"'.$img.'"' : '';
-						$div_addition	= ($title !== '') ? ' data-slidertitle="'.$title.'"' : '';
+						$_img	 = ($img !== '') ? ',"sliderImage":"'.$img.'"' : '';
 						
-						$zindex_pos = strpos($addition, 'zindex=\"');
-						if($zindex_pos !== false){
-							$zindex = substr($addition, $zindex_pos + 9, strpos($addition, '\"', $zindex_pos + 9) - ($zindex_pos + 9));
-							$div_addition .= ' style="z-index:'.$zindex.';"';
-							$wrap_addition .= ',"zindex":"'.$zindex.'"';
-						}
-						
-						$content .= '<!-- wp:themepunch/revslider {"checked":true'.$wrap_addition.'} -->'."\n";
-						$content .= '<div class="wp-block-themepunch-revslider revslider" data-modal="false"'.$div_addition.'>';
+						$content .= '<!-- wp:themepunch/revslider {"checked":true'.$_img.'} -->'."\n";
+						$content .= '<div class="wp-block-themepunch-revslider revslider" data-modal="false"'.$_title.'>';
 					}
 					
-					$content .= '[rev_slider alias="'.$alias.'"'.$usage.$addition.'][/rev_slider]'; //this way we will reorder as last comes first
+					$content .= '[rev_slider alias="'.$alias.'"'.$usage.'][/rev_slider]'; //this way we will reorder as last comes first
 					
 					if(version_compare($wp_version, '5.0', '>=')){ //add gutenberg code
 						$content .= '</div>'."\n".'<!-- /wp:themepunch/revslider -->'."\n";
@@ -548,11 +539,11 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 			
 			require_once(ABSPATH . 'wp-admin/includes/image.php');
 		 
-			@wp_update_attachment_metadata($upload_id, wp_generate_attachment_metadata($upload_id, $new_path));
+			wp_update_attachment_metadata($upload_id, wp_generate_attachment_metadata($upload_id, $new_path));
 			
 			//$meta = wp_get_attachment_metadata( $attachment->ID );
 			
-			$img_dim = @wp_get_attachment_image_src($upload_id, 'full');
+			$img_dim = wp_get_attachment_image_src($upload_id, 'full');
 			$width	= ($img_dim !== false) ? $this->get_val($img_dim, 1, '') : '';
 			$height	= ($img_dim !== false) ? $this->get_val($img_dim, 2, '') : '';
 			
@@ -572,8 +563,6 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 	 */
 	public function get_javascript_multilanguage(){
 		$lang = array(			
-			'editskins' => __('Edit Skin List', 'revslider'),			
-			'globalcoloractive' => __('Color Skin Active', 'revslider'),			
 			'corejs' => __('Core JavaScript', 'revslider'),			
 			'corecss' => __('Core CSS', 'revslider'),			
 			'coretools' => __('Core Tools (GreenSock & Co)', 'revslider'),			
@@ -1251,31 +1240,6 @@ class RevSliderFunctionsAdmin extends RevSliderFunctions {
 		}
 		
 		return $match;
-	}
-	
-	/**
-	 * get all available languages from Slider Revolution
-	 **/
-	public function get_available_languages(){
-		$lang_codes = array(
-			'de_DE' => __('German', 'revslider'),
-			'en_US' => __('English', 'revslider'),
-			'fr_FR' => __('French', 'revslider'),
-			'zh_CN' => __('Chinese', 'revslider')
-		);
-		
-		$lang = get_available_languages(RS_PLUGIN_PATH.'languages/');
-		$_lang = array();
-		if(!empty($lang)){
-			foreach($lang as $k => $v){
-				if(strpos($v, 'revsliderhelp-') !== false) continue;
-				
-				$_lc = str_replace('revslider-', '', $v);
-				$_lang[$_lc] = (isset($lang_codes[$_lc])) ? $lang_codes[$_lc] : $_lc;
-			}
-		}
-		
-		return $_lang;
 	}
 }
 ?>

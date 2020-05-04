@@ -1,0 +1,43 @@
+
+---Downloaded files---
+The import files for: Demo Import were successfully downloaded!
+Initial max execution time = 120
+Files info:
+Site URL = https://localhost/wise-education
+Data file = /Applications/XAMPP/xamppfiles/htdocs/wise-education/wp-content/themes/digitax/install_resource/demo_import/demo-content.xml
+Widget file = /Applications/XAMPP/xamppfiles/htdocs/wise-education/wp-content/themes/digitax/install_resource/demo_import/widgets.wie
+Customizer file = /Applications/XAMPP/xamppfiles/htdocs/wise-education/wp-content/themes/digitax/install_resource/demo_import/customize.dat
+Redux files:
+not defined!
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Main Sidebar : 
+
+Custom HTML - No Title - Imported
+Custom HTML - No Title - Imported
+Categories - Categories - Imported
+Tag Cloud - Tags - Imported
+
+
+
+---Importing customizer settings---
+Customizer settings import finished!
+
+---pt-ocdi/after_import---
+

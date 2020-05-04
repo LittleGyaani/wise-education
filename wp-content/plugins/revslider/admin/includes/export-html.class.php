@@ -301,7 +301,7 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 				$this->pclzip->add(RS_PLUGIN_PATH.'public/assets/fonts/revicons/revicons.woff', PCLZIP_OPT_REMOVE_PATH, RS_PLUGIN_PATH.'public/assets/');
 			}
 			
-			$notice_text = __('Using this data is only allowed with a valid licence of the jQuery Slider Revolution Plugin, which can be found at: https://www.themepunch.com/links/slider_revolution_jquery', 'revslider');
+			$notice_text = __('Using this data is only allowed with a valid licence of the jQuery Slider Revolution Plugin, which can be found at CodeCanyon: http://codecanyon.net/item/slider-revolution-responsive-jquery-plugin/2580848?ref=themepunch', 'revslider');
 			
 			if(!$this->usepcl){
 				$this->zip->addFromString('NOTICE.txt', $notice_text); //add slider settings
@@ -472,7 +472,7 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 			?>
 			<article class="small-history"> 
 				<h2 class="textaligncenter" style="margin-bottom:25px;">Your Slider Revolution jQuery Plugin</h2>
-				<p>Slider Revolution is an innovative, responsive Slider Plugin that displays your content the beautiful way. Whether it's a <strong>Slider, Carousel, Hero Scene</strong> or even a whole <strong>Front Page</strong>.<br>The <a href="https://www.themepunch.com/links/slider_revolution_jquery_visual_editor" target="_blank">visual drag &amp; drop editor</a> will help you to create your Sliders and tell your own stories in no time!</p>
+				<p>Slider Revolution is an innovative, responsive Slider Plugin that displays your content the beautiful way. Whether it's a <strong>Slider, Carousel, Hero Scene</strong> or even a whole <strong>Front Page</strong>.<br>The <a href="https://codecanyon.net/item/slider-revolution-jquery-visual-editor-addon/13934907" target="_blank">visual drag &amp; drop editor</a> will help you to create your Sliders and tell your own stories in no time!</p>
 			</article>
 			<?php
 			}
@@ -493,7 +493,7 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 			?>
 			<article class="small-history bottom-history" style="background:#f5f7f9;"> 
 				<h2 class="textaligncenter" style="margin-bottom:25px;">Your Slider Revolution jQuery Plugin</h2>
-				<p>Slider Revolution is an innovative, responsive Slider Plugin that displays your content the beautiful way. Whether it's a <strong>Slider, Carousel, Hero Scene</strong> or even a whole <strong>Front Page</strong>.<br>The <a href="https://www.themepunch.com/links/slider_revolution_jquery_visual_editor" target="_blank">visual drag &amp; drop editor</a> will help you to create your Sliders and tell your own stories in no time!</p>
+				<p>Slider Revolution is an innovative, responsive Slider Plugin that displays your content the beautiful way. Whether it's a <strong>Slider, Carousel, Hero Scene</strong> or even a whole <strong>Front Page</strong>.<br>The <a href="https://codecanyon.net/item/slider-revolution-jquery-visual-editor-addon/13934907" target="_blank">visual drag &amp; drop editor</a> will help you to create your Sliders and tell your own stories in no time!</p>
 			</article>
 				<?php
 			}
@@ -542,9 +542,10 @@ class RevSliderSliderExportHtml extends RevSliderSliderExport {
 				<div class="footerwidget">
 					<h3>More Versions</h3>
 					<a href="https://revolution.themepunch.com" target="_blank">WordPress</a>
-					<a href="https://www.themepunch.com/links/slider_revolution_prestashop" target="_blank">Prestashop</a>
-					<a href="https://www.themepunch.com/links/slider_revolution_magento" target="_blank">Magento</a>
-					<a href="https://www.themepunch.com/links/slider_revolution_opencart" target="_blank">OpenCart</a>
+					<a href="https://codecanyon.net/item/slider-revolution-responsive-prestashop-module/7140939?ref=themepunch" target="_blank">Prestashop</a>
+					<a href="https://codecanyon.net/item/slider-revolution-responsive-magento-extension/9332896?ref=themepunch" target="_blank">Magento</a>
+					<a href="https://codecanyon.net/item/slider-revolution-responsive-opencart-module/9994648?ref=themepunch" target="_blank">OpenCart</a>
+					<a href="https://codecanyon.net/item/slider-revolution-responsive-drupal-module/12041755?ref=themepunch" target="_blank">Drupal</a>
 				</div>
 				<div class="footerwidget social">
 					<h3>Follow Us</h3>

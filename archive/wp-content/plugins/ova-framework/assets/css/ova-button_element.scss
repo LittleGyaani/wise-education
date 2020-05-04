@@ -1,0 +1,246 @@
+.btn {
+	border: 0;
+	outline: 0;
+	padding: 14px 40px;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 16px;
+	margin: 0 auto;
+	position: relative;
+	z-index: 5;
+	line-height: 24px;
+	border-radius: .25rem;
+	outline: none;
+	box-shadow: none!important;
+	-webkit-transition: 0.3s all ease-in;
+	-moz-transition: 0.3s all ease-in;
+	-ms-transition: 0.3s all ease-in;
+	-o-transition: 0.3s all ease-in;
+	transition: 0.3s all ease-in;
+}
+.style1{
+	&.btn{
+		&.btn1, &.btn2, &.btn3, &.btn4, &.btn5, &.btn6{
+			&:after{
+				width: 0;
+				height: 100%;
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				background-color: #ffffff;
+				-webkit-transition: 0.3s all ease-in;
+				-moz-transition: 0.3s all ease-in;
+				-ms-transition: 0.3s all ease-in;
+				-o-transition: 0.3s all ease-in;
+				transition: 0.3s all ease-in;
+				z-index: -5;
+			}
+			&:hover{
+				&:after{
+					width: 100%;
+				}
+			}
+		}
+		&.btn1{
+			background-color: #f16334;
+			border: 2px solid #f16334;
+			&:hover{
+				border-color: #221a1a;
+				&:after{
+					background: #221a1a;
+				}
+			}
+		}
+		&.btn2{
+			color: #ffffff;
+			background-color: #221a1a;
+			border: 2px solid #221a1a;
+			&:hover{
+				border-color: #f16334;
+				&:after{
+					background: #f16334;
+				}
+			}
+		}
+		&.btn3{
+			border: 2px solid #f16334;
+			color: #221a1a;
+			background: #fff;
+			&:hover{
+				border-color: #f16334;
+				color: #fff;
+				&:after{
+					background: #f16334;
+				}
+			}
+		}
+		&.btn4{
+			color: #ffffff;
+			background-color: #f16334;
+			border-radius: 0;
+			border: 2px solid #f16334;
+			&:hover{
+				color: #f16334;
+			}
+		}
+		&.btn5{
+			color: #ffffff;
+			background-color: #221a1a;
+			border-radius: 0;
+			border: 2px solid #221a1a;
+			&:hover{
+				color: #221a1a;
+			}
+		}
+		&.btn6{
+			color: #221a1a;
+			background-color: #ffffff;
+			border-radius: 0;
+			border: 2px solid #f16334;
+			&:after {
+				background-color: #f16334;
+			}
+			&:hover{
+				color: #fff;
+			}
+		}
+	}
+}
+.style2{
+	&.btn{
+		-webkit-border-radius: 40px;
+		-moz-border-radius: 40px;
+		border-radius: 40px;
+		border: 2px solid;
+		&.btn1 {
+			background-color: #ffeee9;
+			color: #221a1a;
+			border-color: #ffeee9;
+		}
+		&.btn2 {
+			background-color: #221a1a;
+			color: #ffffff;
+			border-color: #221a1a;
+		}
+		&.btn3 {
+			background-color: #f16334;
+			color: #ffffff;
+			border-color: #f16334;
+		}
+		&.btn4 {
+			background-color: #ffffff;
+			color: #221a1a;
+			border-color: #f16334;
+		}
+		&.btn5 {
+			background-color: #ffffff;
+			color: #221a1a;
+			border-color: #221a1a;
+		}
+		&.btn6 {
+			background-color: #221a1a;
+			color: #f16334;
+			border-color: #f16334;
+		}
+	}
+}
+.style3{
+	&.btn{
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+		border: 2px solid;
+		&.btn1 {
+			background-color: #ffeee9;
+			color: #221a1a;
+			border-color: #ffeee9;
+		}
+		&.btn2 {
+			background-color: #221a1a;
+			color: #ffffff;
+			border-color: #221a1a;
+		}
+		&.btn3 {
+			background-color: #f16334;
+			color: #ffffff;
+			border-color: #f16334;
+		}
+		&.btn4 {
+			background-color: #ffffff;
+			color: #221a1a;
+			border-color: #f16334;
+		}
+		&.btn5 {
+			background-color: #ffffff;
+			color: #221a1a;
+			border-color: #221a1a;
+		}
+		&.btn6 {
+			background-color: #221a1a;
+			color: #f16334;
+			border-color: #f16334;
+		}
+	}
+}
+.style4{
+	&.btn{	    
+		&.btn1 {
+			background-color: #f16334;
+			color: #fff;
+			border: 2px solid #f16334;
+			&:hover{
+				background-color: #25182e;
+				border-color: #25182e;
+			}
+		}
+		&.btn2 {
+			background-color: #25182e;
+			color: #ffffff;
+			border: 2px solid #25182e;
+			&:hover{
+				background: #f16334;
+				border-color: #f16334;
+			}
+		}
+		&.btn3 {
+			background-color: #fff;
+			color: #25182e;
+			border: 2px solid #25182e;
+			&:hover{
+				background-color: #25182e;
+				color: #fff;
+			}
+		}
+		&.btn4 {
+			background-color: #f16334;
+			color: #fff;
+			border: 2px solid #f16334;
+			&:hover{
+				background: #fff;
+				color: #f16334;
+			}
+		}
+		&.btn5 {
+			background-color: #25182e;
+			color: #fff;
+			border: 2px solid #25182e;
+			&:hover{
+				background: #fff;
+				color: #25182e;
+			}
+		}
+		&.btn6 {
+			background-color: #fff;
+			color: #25182e;
+			border: 2px solid #f16334;
+			&:hover{
+				background-color: #f16334;
+				color: #fff;
+			}
+		}
+	}
+}
+
+
+

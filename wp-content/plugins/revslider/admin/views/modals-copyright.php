@@ -12,7 +12,7 @@ if(!defined('ABSPATH')) exit();
 ?>
 
 <!--OPTIMIZER DETAILS-->
-<div style="display:none" class="_TPRB_ rb-modal-wrapper" data-modal="rbm_optimizer_infos" id="rbm_optimizer_infos_wrap" >
+<div style="display:none" class="rb-modal-wrapper" data-modal="rbm_optimizer_infos" id="rbm_optimizer_infos_wrap" >
 	<div class="rb-modal-inner">
 		<div class="rb-modal-content">
 			<div id="rbm_optimizer_infos" class="rb_modal form_inner">
@@ -37,83 +37,8 @@ if(!defined('ABSPATH')) exit();
 	</div>
 </div>
 
-
-<div style="display:none" class="_TPRB_ rb-modal-wrapper rb-basicforms" data-modal="rbm_blocksettings">
-	<div class="rb-modal-inner">
-		<div class="rb-modal-content">
-			<div id="rbm_blocksettings" class="rb_modal form_inner">
-				<div class="rbm_header"><i class="rbm_symbol material-icons">tune</i><span class="rbm_title"><?php _e('Slider Revolution Block Settings','revslider');?></span><i class="rbm_close material-icons">close</i></div>
-				<div class="rbm_content">
-					<div class="rbm_general_half" style="padding-right:20px;">
-						<div class="rb_not_on_notactive">						
-							<div class="ale_i_title thumbnail_title"><?php _e('Module Layout','revslider');?></div><hr class="general_hr"><span class="linebreak"></span>
-							<label_a><?php _e('Sizing','revslider');?></label_a>
-							<div class="radiooption">
-								<div class="sl_auto"><input name="modulelayout" data-r="layout" type="radio" value="auto" class="scblockinput easyinit callEvent" data-evt="checkOffsets"><label_sub><?php _e('Auto Width','revslider');?></label_sub><span class="origlayout_auto origlayout">*</span></div>
-								<div class="sl_fullwidth"><input name="modulelayout" data-r="layout" type="radio" value="fullwidth" class="scblockinput callEvent easyinit" data-evt="checkOffsets"><label_sub><?php _e('Full Width','revslider');?></label_sub><span class="origlayout_fullwidth origlayout">*</span></div>
-								<div class="sl_fullscreen"><input name="modulelayout" data-r="layout" type="radio" value="fullscreen" class="scblockinput callEvent easyinit" data-evt="checkOffsets"><label_sub><?php _e('Full Screen','revslider');?></label_sub><span class="origlayout_fullscreen origlayout">*</span></div>
-							</div>			
-							<div class="div40"></div>	
-						</div>
-						<div class="ale_i_title thumbnail_title"><?php _e('Insert Module as Pop Up Module','revslider');?></div><hr class="general_hr"><span class="linebreak"></span>
-						<label_a>Use Pop Up</label_a><input id="rs_popup_decide" type="checkbox" class="easyinit scblockinput" data-r="modal" data-showhide=".rs_modaldependencies_false" data-hideshow=".rs_modaldependencies_true" data-showhidedep="false">
-						
-						<div class="div25"></div>
-						<div class="ale_i_title thumbnail_title"><?php _e('Pop Up by Actions','revslider');?></div><hr class="general_hr"><span class="linebreak"></span>																						
-						<div class="function_info"><?php _e('Pop Up\'s can also be triggered by Layer Actions.<br>See more details in ','revslider');?><a href="https://www.themepunch.com/slider-revolution/lightbox-modal/" target:"_new"><?php _e('Pop Up / Modal Documentation','revslider');?></a></div>
-						
-					</div>
-					<div class="rbm_general_half" style="padding-left:20px;">
-						<div class="rb_not_on_notactive">	
-							<div class="rs_modaldependencies_false">								
-								<div class="ale_i_title thumbnail_title"><?php _e('Block Offsets (Module Wrapping Offset)','revslider');?></div><hr class="general_hr"><span class="linebreak"></span>				
-								<div class="offset_list"><label_icon class="ui_margin_top"></label_icon><label_icon class="ui_padding_right"></label_icon><label_icon class="ui_margin_bottom"></label_icon><label_icon class="ui_padding_left"></label_icon></div>
-								<div><label_icon class="ui_desktop"></label_icon>   <input data-r="offset.d.top" class="valueduekeyboard miniinput scblockinput easyinit " data-allowed="px"  data-numeric="true" data-min="-500" data-max="2000" type="text"><input data-r="offset.d.right" class=" valueduekeyboard miniinput scblockinput easyinit" data-allowed="px"  data-numeric="true" data-min="-500" data-max="2000" type="text"><input data-r="offset.d.bottom" class=" valueduekeyboard miniinput scblockinput easyinit" data-allowed="px"  data-numeric="true" data-min="-500" data-max="2000" type="text"><input data-r="offset.d.left" class=" valueduekeyboard miniinput scblockinput easyinit" data-allowed="px"  data-numeric="true" data-min="-500" data-max="2000" type="text"><input type="checkbox" class="easyinit scblockinput" data-r="offset.d.use"></div>
-								<div><label_icon class="ui_notebook"></label_icon>  <input data-r="offset.n.top" class="valueduekeyboard miniinput scblockinput easyinit " data-allowed="px"  data-numeric="true" data-min="-500" data-max="2000" type="text"><input data-r="offset.n.right" class=" valueduekeyboard miniinput scblockinput easyinit" data-allowed="px"  data-numeric="true" data-min="-500" data-max="2000" type="text"><input data-r="offset.n.bottom" class=" valueduekeyboard miniinput scblockinput easyinit" data-allowed="px"  data-numeric="true" data-min="-500" data-max="2000" type="text"><input data-r="offset.n.left" class=" valueduekeyboard miniinput scblockinput easyinit" data-allowed="px"  data-numeric="true" data-min="-500" data-max="2000" type="text"><input type="checkbox" class="easyinit scblockinput" data-r="offset.n.use"></div>
-								<div><label_icon class="ui_tablet"></label_icon>    <input data-r="offset.t.top" class="valueduekeyboard miniinput scblockinput easyinit " data-allowed="px"  data-numeric="true" data-min="-500" data-max="2000" type="text"><input data-r="offset.t.right" class=" valueduekeyboard miniinput scblockinput easyinit" data-allowed="px"  data-numeric="true" data-min="-500" data-max="2000" type="text"><input data-r="offset.t.bottom" class=" valueduekeyboard miniinput scblockinput easyinit" data-allowed="px"  data-numeric="true" data-min="-500" data-max="2000" type="text"><input data-r="offset.t.left" class=" valueduekeyboard miniinput scblockinput easyinit" data-allowed="px"  data-numeric="true" data-min="-500" data-max="2000" type="text"><input type="checkbox" class="easyinit scblockinput" data-r="offset.t.use"></div>
-								<div><label_icon class="ui_mobile"></label_icon>    <input data-r="offset.m.top" class="valueduekeyboard miniinput scblockinput easyinit " data-allowed="px"  data-numeric="true" data-min="-500" data-max="2000" type="text"><input data-r="offset.m.right" class=" valueduekeyboard miniinput scblockinput easyinit" data-allowed="px"  data-numeric="true" data-min="-500" data-max="2000" type="text"><input data-r="offset.m.bottom" class=" valueduekeyboard miniinput scblockinput easyinit" data-allowed="px"  data-numeric="true" data-min="-500" data-max="2000" type="text"><input data-r="offset.m.left" class=" valueduekeyboard miniinput scblockinput easyinit" data-allowed="px"  data-numeric="true" data-min="-500" data-max="2000" type="text"><input type="checkbox" class="easyinit scblockinput" data-r="offset.m.use"></div>
-								<div class="div25"></div>
-								<div class="ale_i_title thumbnail_title"><?php _e('Block Depth','revslider');?></div>
-								<hr class="general_hr">
-								<span class="linebreak"></span>	
-								<label_a><?php _e('Z-Index','revslider');?></label_a>
-								<input data-r="zindex" class="valueduekeyboard miniinput scblockinput easyinit" data-allowed=""  data-numeric="true" data-min="0" data-max="10000000" type="text">
-							</div>
-						</div>
-						<div class="rb_not_on_notactive">	
-							<div class="rs_modaldependencies_true">				
-								<div class="ale_i_title thumbnail_title"><?php _e('Pop Up after Time','revslider');?><input type="checkbox" data-rocker="foals" class="easyinit scblockinput" data-r="popup.time.use"></div><hr class="general_hr"><span class="linebreak"></span>
-								<label_a><?php _e('After (ms)','revslider');?></label_a><input data-r="popup.time.v" class="valueduekeyboard smallinput scblockinput easyinit " data-allowed="ms"  data-numeric="true" data-min="0" data-max="200000" type="text">
-								<div class="div25"></div>
-								<div class="ale_i_title thumbnail_title"><?php _e('Pop Up at Scroll Position','revslider');?><input type="checkbox" data-rocker="foals" class="easyinit scblockinput" data-r="popup.scroll.use"></div><hr class="general_hr"><span class="linebreak"></span>
-								<div class="radiooption">
-									<label_a><?php _e('Based On','revslider');?></label_a><div style="display:inline-block; margin-right:20px;"><input name="popupscrolltype" data-show="#pop_scroll_o_based" data-hide="#pop_scroll_c_based" data-r="popup.scroll.type" type="radio" value="offset" class="scblockinput easyinit"><label_sub><?php _e('Offset','revslider');?></label_sub></div><!--
-									--><div style="display:inline-block"><input name="popupscrolltype" data-r="popup.scroll.type" data-hide="#pop_scroll_o_based" data-show="#pop_scroll_c_based" type="radio" value="container" class="scblockinput easyinit"><label_sub><?php _e('Container','revslider');?></label_sub></div>								
-								</div>	
-								<div class="div15"></div>
-								<row id="pop_scroll_c_based" class="directrow">
-									<onefull><label_a><?php _e('Container','revslider');?></label_a><input data-r="popup.scroll.container" data-rocker="foals" class="valueduekeyboard longinput scblockinput easyinit " type="text"></onefull>
-								</row>
-								<div id="pop_scroll_o_based"><label_a><?php _e('Offset','revslider');?></label_a><input data-r="popup.scroll.v" data-rocker="foals" class="valueduekeyboard smallinput scblockinput easyinit " data-allowed="px"  data-numeric="true" data-min="-1000" data-max="200000" type="text"></div>
-								<div class="div25"></div>							
-								<div class="ale_i_title thumbnail_title"><?php _e('Pop Up by Events','revslider');?><input type="checkbox" data-rocker="foals"  class="easyinit scblockinput" data-r="popup.event.use"></div><hr class="general_hr"><span class="linebreak"></span>							
-								<row class="direktrow"><onefull><label_a><?php _e('Listen to','revslider');?></label_a><input data-r="popup.event.v" class="valueduekeyboard longinput scblockinput easyinit callEvent" data-evt="updateSRBSSVREVT" type="text"></onefull></row>							
-								<div class="function_info_small">i.e.: jQuery(document).trigger("<span id="srbs_scr_evt"></span>"")</div>
-																						
-							</div>
-						</div>
-					</div>
-				</div>								
-			</div>
-		</div>
-	</div>
-</div>
-
-
-
-
 <!--COPYRIGHT MODAL-->
-<div style="display:none" class="_TPRB_ rb-modal-wrapper" data-modal="rbm_copyright">
+<div style="display:none" class="rb-modal-wrapper" data-modal="rbm_copyright">
 	<div class="rb-modal-inner">
 		<div class="rb-modal-content">
 			<div id="rbm_copyright" class="rb_modal form_inner">
