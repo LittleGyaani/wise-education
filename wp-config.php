@@ -80,6 +80,8 @@ $table_prefix = 'we_';
  */
 define('WP_DEBUG', false);
 
+define('FS_METHOD','direct');
+
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
@@ -89,5 +91,3 @@ if (!defined('ABSPATH')) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
-
-define('FS_METHOD','direct');
